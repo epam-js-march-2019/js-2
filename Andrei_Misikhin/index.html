@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Cafe</title>
+</head>
+<body>
+  <article class="forma">
+    <header>Меню</header>
+    <fieldset class="drinks">
+      <legend>Напитки</legend>
+      <button class="cola">Кола (+50 туг, +40 кал)</button>
+      <button class="coffee">Кофе (+80 туг, +20 кал)</button>
+    </fieldset>
+    <fieldset class="salads">
+      <legend>Салаты</legend>
+      <label for="salad-weight">Вес</label>
+      <input type="number" step="10" id="salad-weight" value="100"> г
+      <button class="caesar">Цезарь (+100 туг, +20 кал) за 100 г</button>
+      <button class="olivie">Оливье (+50 туг, +80 кал) за 100 г</button>
+    </fieldset>
+    <fieldset class="hamburgers">
+      <legend>Гамбургеры</legend>
+      <fieldset>
+        <legend class="size_small">Маленький (+50 туг, +20 кал)</legend>
+        <button class="stuffing_cheese">С сыром (+10 туг, +20 кал)</button>
+        <button class="stuffing_salad">С салатом (+20 туг, +5 кал)</button>
+        <button class="stuffing_potato">С картофелем (+15 туг, +10 кал)</button>
+      </fieldset>
+      <fieldset>
+        <legend class="size_large">Большой (+100 туг, +40 кал)</legend>
+        <button class="stuffing_cheese">С сыром (+10 туг, +20 кал)</button>
+        <button class="stuffing_salad">С салатом (+20 туг, +5 кал)</button>
+        <button class="stuffing_potato">С картофелем (+15 туг, +10 кал)</button>
+      </fieldset>
+    </fieldset>
+  </article>
+  <article class="zakaz">
+    <header>Заказ</header>
+    <fieldset>
+      <legend>Список позиций:</legend>
+      <ol class="zakaz-list">
+
+      </ol>
+      <div class="summary"></div>
+      <button class="pay">Оплатить</button>
+    </fieldset>
+  </article>
+  <script src="js/Food.js"></script>
+  <script src="js/Drink.js"></script>
+  <script src="js/Salad.js"></script>
+  <script src="js/Hamburger.js"></script>
+  <script src="js/Order.js"></script>
+  <script src="js/Errors.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
