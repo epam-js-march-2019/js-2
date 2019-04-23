@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>JS-2</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700,700i" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="order-page">
+  <header class="order-page__header header">
+    <div class="wrapper">
+      <h1 class="header__title">Homework JS-2</h1>
+      <p class="header__auth">Yulia Darznek</p>
+    </div>
+  </header>
+  <main>
+    <div class="order-page__content">
+      <section class="order-page__menu menu">
+        <h2 class="menu__title">Menu</h2>
+        <ul class="menu__list">
+          <li class="menu__card">
+            <input class="menu__input" type="checkbox" name="hamburger" id="item-hamburger" />
+            <label class="menu__label" for="item-hamburger">
+              <span class="menu__card-title">Hamburger</span>
+              <span class="menu__icon menu__icon_burger"></span>
+            </label>
+            <form id="menu__hamburger" class="menu__card-body menu__card-body_hamburger">
+              <p class="menu__card-text">Size</p>
+              <ul class="menu__card-check">
+                <li>
+                  <input type="radio" name="hamburger" value="large" id="hamburger-large" />
+                  <label for="hamburger-large">Large -
+                    <span class="menu__card-price"> 100 tgr (40 cal)</span>
+                  </label>
+                </li>
+                <li>
+                  <input type="radio" name="hamburger" value="small" id="hamburger-small" />
+                  <label for="hamburger-small">Small -
+                    <span class="menu__card-price"> 50 tgr (20 cal)</span>
+                  </label>
+                </li>
+              </ul>
+              <p class="menu__card-text">Stuffing</p>
+              <select class="menu__card-select" name="hamburger-stuffing" id="hamburger-stuffing">
+                <option selected style="display:none">Choose stuffing</option>
+                <option value="stuffing_cheese">Cheese + 10 tgr (+ 20 cal) </option>
+                <option value="stuffing_salad">Salad + 20 tgr (+ 5 cal) </option>
+                <option value="stuffing_potatoes">Potatoes + 15 tgr (+ 10 cal) </option>
+              </select>
+              <div class="menu__card-qty">
+                <label for="hamburger-qty">Quantity: </label>
+                <input type="number" id="hamburger-qty" name="hamburger-qty" />
+              </div>
+
+              <button class="menu__button menu__button_add" type="button" disabled>
+                Add
+              </button>
+              <div class="menu__card-total">
+                <p>
+                  Price:
+                  <span class="menu__card-sum">0 tgr</span>
+                </p>
+                <p>
+                  Calories:
+                  <span class="menu__card-calories">0 cal</span>
+                </p>
+              </div>
+            </form>
+          </li>
+          <li class="menu__card">
+            <input class="menu__input" type="checkbox" name="salad" id="item-salad" />
+            <label class="menu__label" for="item-salad">
+              <span class="menu__card-title">Salad</span>
+              <span class="menu__icon menu__icon_salad"></span>
+            </label>
+            <fieldset id="menu__salad" class="menu__card-body menu__card-body_salad">
+              <ul class="menu__card-check">
+                <li>
+                  <input type="radio" name="salad" value="ceasar" id="salad-ceasar" />
+                  <label for="salad-ceasar">Ceasar -
+                    <span class="menu__card-price"> 100 tgr (20 cal)</span>
+                  </label>
+                </li>
+                <li>
+                  <input type="radio" name="salad" value="russian" id="salad-russian" />
+                  <label for="salad-russian">Russian salad -
+                    <span class="menu__card-price"> 50 tgr (80 cal)</span>
+                  </label>
+                </li>
+              </ul>
+              <div class="menu__card-qty">
+                <label for="salad-qty">Weight in grams: </label>
+                <input type="number" id="salad-qty" min="100" max="3000" step="50" />
+              </div>
+              <button class="menu__button menu__button_add" type="button" disabled>
+                Add
+              </button>
+              <div class="menu__card-total">
+                <p>
+                  Price:
+                  <span class="menu__card-sum">0 tgr</span>
+                </p>
+                <p>
+                  Calories:
+                  <span class="menu__card-calories">0 cal</span>
+                </p>
+              </div>
+            </fieldset>
+          </li>
+          <li class="menu__card">
+            <input class="menu__input" type="checkbox" name="drink" id="item-drink" />
+            <label class="menu__label" for="item-drink">
+              <span class="menu__card-title">Drink</span>
+              <span class="menu__icon menu__icon_coffee-cup"></span>
+              <span class="menu__icon menu__icon_cola"></span>
+            </label>
+            <fieldset id="menu__drink" class="menu__card-body menu__card-body_drink">
+              <ul class="menu__card-check">
+                <li>
+                  <input type="radio" name="drink" value="cola" id="drink-cola" />
+                  <label for="drink-cola">Cola -
+                    <span class="menu__card-price"> 50 tgr (40 cal)</span>
+                  </label>
+                </li>
+                <li>
+                  <input type="radio" name="drink" value="coffee" id="drink-coffee" />
+                  <label for="drink-coffee">Coffee -
+                    <span class="menu__card-price"> 80 tgr (20 cal)</span>
+                  </label>
+                </li>
+              </ul>
+              <div class="menu__card-qty">
+                <label for="drink-qty">Quantity: </label>
+                <input type="number" id="drink-qty" />
+              </div>
+
+              <button class="menu__button menu__button_add" type="button" disabled>
+                Add
+              </button>
+
+              <div class="menu__card-total">
+                <p>
+                  Price:
+                  <span class="menu__card-sum">0 tgr</span>
+                </p>
+                <p>
+                  Calories:
+                  <span class="menu__card-calories">0 cal</span>
+                </p>
+              </div>
+            </fieldset>
+          </li>
+        </ul>
+      </section>
+      <div class="order-page__order order">
+        <h2 class="order__title">Order</h2>
+        <p class="order__empty-text">Order something...</p>
+        <div class="order__content">
+          <div class="order__body">
+            <ol class="order__list">
+              <!-- order items -->
+            </ol>
+          </div>
+          <div class="order__footer">
+            <div class="order__total">
+              <h3 class="order__total-title">Total:</h3>
+              <p class="order__total-line">
+                <span class="order__total-param">Calories:</span>
+                <span class="order__total-calories">8000&nbsp;cal</span>
+              </p>
+              <p class="order__total-line">
+                <span class="order__total-param">Sum:</span>
+                <span class="order__total-sum">600&nbsp;tgr</span>
+              </p>
+            </div>
+
+            <button type="button" class="order__button order__button_pay">
+              Pay order
+            </button>
+
+            <div class="order__paid-block">
+              <p>Order is paid</p>
+              <button type="button" class="order__button order__button_new">
+                Make new Order
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <template id="order-item">
+      <div class="order-item">
+        <h3 class="order__item-title">Hamburger</h3>
+        <div class="order__item-info">
+          <p class="order__item-line">
+            <span class="order__item-param">stuffing</span>
+            <span class="order__item-value order__item-value_stuffing">cheese</span>
+          </p>
+          <p class="order__item-line">
+            <span class="order__item-param">qty</span>
+            <span class="order__item-value order__item-value_qty">2</span>
+          </p>
+          <p class="order__item-line">
+            <span class="order__item-param">Calories:</span>
+            <span class="order__item-value order__item-value_calories">800&nbsp;cal</span>
+          </p>
+          <p class="order__item-line">
+            <span class="order__item-param">Price:</span>
+            <span class="order__item-value order__item-value_price">60&nbsp;tgr</span>
+          </p>
+        </div>
+        <button class="order__item-button order__item-button_del order__button" type="button" title="remove from order">
+          X
+        </button>
+      </div>
+    </template>
+  </main>
+
+  <script src="js/constants.js"></script>
+  <script src="js/menu-item.js"></script>
+  <script src="js/order.js"></script>
+  <script src="js/hamburger.js"></script>
+  <script src="js/salad.js"></script>
+  <script src="js/drink.js"></script>
+  <script src="js/actions.js"></script>
+</body>
+
+</html>

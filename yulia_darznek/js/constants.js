@@ -1,0 +1,5 @@
+var PRICE_UNIT = 'tgr';
+var CALORIES_UNIT = 'cal';
+var INITIAL_VALUE_PRICE = 0;
+var INITIAL_VALUE_CALORIES = 0;
+var MIN_ITEM_VALUE = 0;
