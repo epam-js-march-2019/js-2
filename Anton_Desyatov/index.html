@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaraunt</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="restaraunt.js"></script>
+</head>
+<body>
+    <div class="backgroundContainer">
+        <article class="mainWindow">
+            <section class="listOrder">
+                <p>Current order list</p>
+                <section class=currentOrderList>OrderList</section>
+                <section>
+                    <p class="totalWorth"></p>
+                </section>
+            </section>
+            <section>
+                <section class="menu">
+                    <p class="hamburgerMenuText">Hamburger menu</p>
+                    <section class="hamburgerMenu">
+                        <div>
+                            <input type="checkbox" name="hamburger" id="hamburger">
+                            <label for="hamburger">Hamburger</label>
+                        </div>
+                        <div class="options">
+                            <p>Pick a size</p>
+                            <input type="radio" name="size" id="smallHamburger" value="small">
+                            <label for="smallHamburger">
+                                small
+                            </label>
+                            <input type="radio" name="size" id="bigHamburger" value="big">
+                            <label for="bigHamburger">
+                                big
+                            </label>
+                        </div>
+                        <div class="options">
+                            <div>
+                                <p>Pick stuffing</p>
+                                <input type="radio" name="stuffing" id="hamburgerStuffingCheese" value="STUFF_CHEESE">
+                                <label for="hamburgerStuffingCheese">
+                                    Cheese
+                                </label>
+                                <input type="radio" name="stuffing" id="hamburgerStuffingSalad" value="STUFF_SALAD">
+                                <label for="hamburgerStuffingSalad">
+                                    Salad
+                                </label>
+                                <input type="radio" name="stuffing" id="hamburgerStuffingPotato" value="STUFF_POTATO">
+                                <label for="hamburgerStuffingPotato">
+                                    Potato
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+                    <p class="saladMenuText">Salad menu</p>
+                    <section class="saladMenu">
+                        <div>
+                            <input type="checkbox" name="salad" id="salad">
+                            <label for="salad">Salad</label>
+                        </div>
+                        <div class="options">
+                            <input type="radio" name="salad" id="saladCaesar" value="caesar">
+                            <label for="saladCaesar">
+                                salad Caesar
+                            </label>
+                            <input type="radio" name="salad" id="saladOlivie" value="olivie">
+                            <label for="saladOlivie">
+                                salad Olivie
+                            </label>
+                            <p>Weight</p>
+                            <input type="radio" name="weight" id="100g" value=100>
+                            <label for="100g">
+                                100 gram
+                            </label>
+                            <input type="radio" name="weight" id="150g" value=150>
+                            <label for="150g">
+                                150 gram
+                            </label>
+                            <input type="radio" name="weight" id="200g" value=200>
+                            <label for="200g">
+                                200 gram
+                            </label>
+                        </div>
+                    </section>
+                    <p class="drinkMenuText">Drink menu</p>
+                    <section class="drinkMenu">
+                        <div>
+                            <input type="checkbox" name="drink" id="drink">
+                            <label for="drink">Drink</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="drink" id="drinkCola" value="cola">
+                            <label for="drinkCola">
+                                Cola
+                            </label>
+                            <input type="radio" name="drink" id="drinkCoffee" value="coffee">
+                            <label for="drinkCoffee">
+                                Coffee
+                            </label>
+                        </div>
+                    </section>
+                        <button id="addToOrder" onclick="order.addItems()">Add to order</button>
+                        <button id="finalizeOrder" onclick='order.finishOrder()'> Finish your order</button>
+                </section>
+            </section>
+        </article>
+    </div>
+</body>
+</html>
