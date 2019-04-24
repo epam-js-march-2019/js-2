@@ -3,12 +3,8 @@ var Order = {
     calories: 0,
     price: 0,
     counter: -1,
-    isPaid: false,
 
     addItems: function(){
-        if(this.isPaid){
-            return alert("Order has already been paid for and cannot be modified!");
-        }
 
         var id = this.counter;
         var calories;
@@ -61,20 +57,18 @@ var Order = {
                 price = Salad.CAESAR_PRICE;
                 type = "Caesar";
             }
+
             Array.prototype.slice.call(document.getElementsByName("weight")).map(function(curr){
                 if(curr.checked){
-                    console.log(+curr.value);
                     weight =+ +curr.value;
 
-                    //Is it magical numbers if I try to calculate coefficents for weight proportions? ¯\_(ツ)_/¯
-
                     if(type === "Olivie"){
-                        calories = Salad.OLIVIE_CALORIES * +curr.value / 100;
-                        price = Salad.OLIVIE_PRICE * +curr.value / 100;
+                        calories = Salad.OLIVIE_CALORIES * +curr.value / Salad.DEFAULT_WEIGHT;
+                        price = Salad.OLIVIE_PRICE * +curr.value / Salad.DEFAULT_WEIGHT;
                     }
                     else{
-                        calories = Salad.CAESAR_CALORIES * +curr.value / 100;
-                        price = Salad.CAESAR_PRICE * +curr.value / 100;
+                        calories = Salad.CAESAR_CALORIES * +curr.value / Salad.DEFAULT_WEIGHT;
+                        price = Salad.CAESAR_PRICE * +curr.value / Salad.DEFAULT_WEIGHT;
                     }
                 }
             });
@@ -104,32 +98,45 @@ var Order = {
             //Creating drink html card and adding it to document
             this.addItemCard(drink);
         }
+        //Calculating values of all items in order
         this.calculateValues();
+        //Resetting all inputs after adding items
         Array.prototype.slice.call(document.getElementsByTagName('input')).map(function(curr){
-            curr.checked = false;
-        });
+            switch (curr.id){
+                case "smallHamburger":
+                    curr.checked = true;
+                    break;
+                case "100g":
+                    curr.checked = true;
+                    break;
+                case "drinkCola":
+                    curr.checked = true;
+                    break;
+                default:
+                    curr.checked = false;
+            }
 
+        });
     },
 
     addItemCard: function(item){
         var Node = document.createElement("div");
         Node.setAttribute('class', 'itemCard');
-        Node.setAttribute('id', item.id);
-        Node.innerHTML += item.name;
+        Node.setAttribute('id', item.getId());
+        Node.innerHTML += item.getName();
         if(item.name === "Hamburger"){
-            Node.innerHTML += "<p>" + "Size = " + item.size + "</p>";
+            Node.innerHTML += "<p>" + "Size=" + item.getSize() + "</p>";
             Node.innerHTML += "<p>" + "Stuffing is " + item.getStuffing() + "</p>";
         }
         if(item.name.includes("Salad")){
-            Node.innerHTML += "<p>" + "Weight = " + item.weight + " gram" + "</p>";
+            Node.innerHTML += "<p>" + "Weight=" + item.getWeight() + " gram" + "</p>";
         }
-        Node.innerHTML += "<p>" + "Calories = " + item.getCalories() + " Price= " + item.getPrice()+ "</p>";
+        Node.innerHTML += "<p>" + "Calories=" + item.getCalories() + " Price=" + item.getPrice()+ "</p>";
         Node.innerHTML += "<button class='deleteButton' onclick='order.removeItem(this.parentNode.id)'>delete</button>";
         document.getElementsByClassName("currentOrderList")[0].appendChild(Node);
     },
 
     removeItem: function(nodeId){
-        console.log(nodeId);
         for(var i = 0; i<this.items.length;i++){
             if(this.items[i].id === +nodeId){
                 this.items.splice(i,1);
@@ -145,12 +152,11 @@ var Order = {
         this.calories = 0;
         this.price = 0;
         this.items.forEach(function(curr){
-            console.log(curr.getCalories());
             order.calories += curr.getCalories();
             order.price += curr.getPrice();
         });
-        document.getElementsByClassName("totalWorth")[0].innerHTML="Калории заказа =" + order.calories +
-            "\nЦена заказа =" + order.price;
+        document.getElementsByClassName("totalWorth")[0].innerHTML="Калории заказа = " + order.calories +
+            "\nЦена заказа = " + order.price;
     },
 
     finishOrder: function(){
@@ -158,7 +164,6 @@ var Order = {
             Object.defineProperty(this,currProp,{
                 writable : false
             });
-            console.log('Locked property ' + currProp);
         }
         this.paid = true;
         document.getElementById('addToOrder').disabled = true;
@@ -176,6 +181,15 @@ Food.prototype.getPrice = function(){
 Food.prototype.getCalories = function(){
     return this.calories;
 };
+
+Food.prototype.getName = function(){
+    return this.name;
+};
+
+Food.prototype.getId = function(){
+    return this.id;
+};
+
 
 function Hamburger(calories,price,size,stuffing,id) {
     this.name = "Hamburger";
@@ -233,13 +247,8 @@ Salad.OLIVIE_PRICE = 50;
 //Salad calories value
 Salad.CAESAR_CALORIES = 20;
 Salad.OLIVIE_CALORIES = 80;
-
-//Drink type price
-Drink.COLA_PRICE = 50;
-Drink.COFFEE_PRICE = 80;
-//Drink calories value
-Drink.COLA_CALORIES = 40;
-Drink.COFFEE_CALORIES = 20;
+//Default weight value
+Salad.DEFAULT_WEIGHT = 100;
 
 function Drink(calories, price, type, id) {
     this.calories = calories;
@@ -249,6 +258,12 @@ function Drink(calories, price, type, id) {
     this.id = id;
 }
 
+//Drink type price
+Drink.COLA_PRICE = 50;
+Drink.COFFEE_PRICE = 80;
+//Drink calories value
+Drink.COLA_CALORIES = 40;
+Drink.COFFEE_CALORIES = 20;
 //Setting meals prototypes to acquire functions of Food
 Hamburger.prototype = Object.create(Food.prototype);
 Salad.prototype = Object.create(Food.prototype);
