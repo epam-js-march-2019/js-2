@@ -14,9 +14,13 @@ $(".menu-list_burger .btn").click(function () {
 
 $(".menu-list_salad .btn").click(function () {
     var type = $('.menu-list_salad input[type=radio]:checked').val();
-    var newSalad = new Salad(type);
-    $(".order-list ul").append("<li>Салат: "+type+" <span data-id='"+(Order.items.length-1)+"' class='glyphicon glyphicon-trash' aria-hidden='true' style='cursor: pointer'></span></li>");
-    ShowTotalPrice();
+    var salad_count = parseInt($("#salad_count").val());
+    console.log(isInteger(salad_count));
+    if (salad_count >= 100 && salad_count <= 500 && isInteger(salad_count)){
+        var newSalad = new Salad(type,salad_count);
+        $(".order-list ul").append("<li>Салат: "+type+" "+salad_count+" гр.<span data-id='"+(Order.items.length-1)+"' class='glyphicon glyphicon-trash' aria-hidden='true' style='cursor: pointer'></span></li>");
+        ShowTotalPrice();
+    }
 });
 
 $(".menu-list_drink .btn").click(function () {
@@ -59,7 +63,8 @@ function UpdateList() {
         }
         else if (item['name'] == "Salad"){
             var type = item['type'];
-            $(".order-list ul").append("<li>Салат: "+type+" <span data-id='"+i+"' class='glyphicon glyphicon-trash' aria-hidden='true' style='cursor: pointer'></span></li>");
+            var salad_count = item['salad_count'];
+            $(".order-list ul").append("<li>Салат: "+type+" "+salad_count+" гр.<span data-id='"+i+"' class='glyphicon glyphicon-trash' aria-hidden='true' style='cursor: pointer'></span></li>");
         }
         else if (item['name'] == "Drink"){
             var type = item['type'];
@@ -101,4 +106,8 @@ function FinishOrder() {
 
     $(".order-list").append("<p>Ваш заказ успешно оформлен, мы свяжемся с вами в ближайшее время. Для создания нового заказа перезагрузите страницу</p>");
 
+}
+
+function isInteger(num) {
+    return (num ^ 0) === num;
 }
