@@ -79,9 +79,9 @@ function checkItem(parentElm, elm, constr) {
   var addButton = parentElm.querySelector('.menu__button_add');
   var stuffing = (elm === 'hamburger') ? parentElm.querySelector('#hamburger-stuffing') : '';
 
-  if (elm !== 'hamburger' && itemName.value && itemQty.value > MIN_ITEM_VALUE) {
+  if (elm !== 'hamburger' && itemName.value && itemQty.value >= MIN_ITEM_VALUE) {
     var item = new constr(constr[itemName.value.toUpperCase()]);
-  } else if (elm === 'hamburger' && itemName.value && itemQty.value > MIN_ITEM_VALUE && stuffing.value) {
+  } else if (elm === 'hamburger' && itemName.value && itemQty.value >= MIN_ITEM_VALUE && stuffing.value) {
     var item = new constr(constr[itemName.value.toUpperCase()], constr[stuffing.value.toUpperCase()]);
   } else {
     addButton.disabled = true;
