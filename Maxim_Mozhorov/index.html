@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maxim Mozhorov Menu</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="col-lg-8 col-md-8 alert-info">
+        <h1 class="text-center">Меню</h1>
+        <div class="row text-center menu-list">
+            <div class="col-lg-4 col-md-4 menu-list_burger">
+                <img src="img/burger.jpg" class="img-responsive"/>
+                <div class="radio burger-type-class">
+                    <label><input type="radio" name="burger-type" value="small" checked>Маленький</label>
+                </div>
+                <div class="radio burger-type-class">
+                    <label><input type="radio" name="burger-type" value="big">Большой</label>
+                </div>
+                <hr/>
+                <div class="radio burger-stuffing-type-class">
+                    <label><input type="radio" name="burger-stuffing-type" value="cheese" checked>Добавить сыр</label>
+                </div>
+                <div class="radio burger-stuffing-type-class">
+                    <label><input type="radio" name="burger-stuffing-type" value="salad" >Добавить салат</label>
+                </div>
+                <div class="radio burger-stuffing-type-class">
+                    <label><input type="radio" name="burger-stuffing-type" value="potato" >Добавить картофель</label>
+                </div>
+                <div class="radio burger-stuffing-type-class">
+                    <label><input type="radio" name="burger-stuffing-type" value="" >Без доп. ингридиентов</label>
+                </div>
+
+                <button class="btn btn-success">Добавить</button>
+            </div>
+            <div class="col-lg-4 col-md-4 menu-list_salad">
+                <img src="img/salad.jpg" class="img-responsive"/>
+
+                <div class="radio">
+                    <label><input type="radio" name="salad-type" value="cesar" checked>Цезарь</label>
+                </div>
+
+                <div class="radio">
+                    <label><input type="radio" name="salad-type" value="olive" >Оливье</label>
+                </div>
+
+                <button class="btn btn-success">Добавить</button>
+            </div>
+            <div class="col-lg-4 col-md-4 menu-list_drink">
+                <img src="img/drink.jpg" class="img-responsive"/>
+
+                <div class="radio">
+                    <label><input type="radio" name="drink-type" value="cola" checked>Кола</label>
+                </div>
+
+                <div class="radio">
+                    <label><input type="radio" name="drink-type" value="coffee">Кофе</label>
+                </div>
+
+                <button class="btn btn-success">Добавить</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4 alert-success">
+        <h1 class="text-center">Ваш заказ</h1>
+        <div class="order-list" style="display: none">
+            <p>Ваш Заказ включает в себя:</p>
+            <ul></ul>
+            <h2 class="total-price"></h2>
+            <button class="btn btn-info" >Оформить заказ</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="js/Food.js"></script>
+<script src="js/Burger.js"></script>
+<script src="js/Salad.js"></script>
+<script src="js/Drink.js"></script>
+<script src="js/Order.js"></script>
+<script src="js/main.js"></script>
+<script src="js/interactive.js"></script>
+</body>
+</html>
