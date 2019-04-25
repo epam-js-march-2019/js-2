@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fast food</title>
+    <script src="entity/product_info.js"></script>
+    <script src="entity/hamburger.js"></script>
+    <script src="entity/salad.js"></script>
+    <script src="entity/drink.js"></script>
+    <script src="entity/menu_item.js"></script>
+    <script src="entity/order_item.js"></script>
+    <script src="entity/order.js"></script>
+    <script src="listeners.js"></script>
+</head>
+<body>
+<form id="hamburger" onsubmit="addHamburger(this, event)" onchange="checkFormIsValid(this, event)">
+    <h3>Гамбургер</h3>
+    <div>
+        <label>Размер</label>
+        <label><input type="radio" name="size" value="small" required> Маленький </label>
+        <label><input type="radio" name="size" value="large" required> Большой </label>
+    </div>
+    <div>
+        <label>Начинка</label>
+        <label><input type="radio" name="stuff" value="cheese"> Сыр </label>
+        <label><input type="radio" name="stuff" value="salad"> Салат </label>
+        <label><input type="radio" name="stuff" value="potato"> Картошка </label>
+    </div>
+    <button name="submit" type="submit" disabled>Добавить</button>
+</form>
+<form id="salad" onsubmit="addSalad(this, event)" onchange="checkFormIsValid(this, event)">
+    <h3>Салат</h3>
+    <div>
+        <label>Тип</label>
+        <label><input type="radio" name="salad" value="caesar" required> Цезарь </label>
+        <label><input type="radio" name="salad" value="russian_salad" required> Оливье </label>
+    </div>
+    <div>
+        <label>Вес <input type="number" name="weight" value="100"></label>
+    </div>
+    <button name="submit" type="submit" disabled>Добавить</button>
+</form>
+<form id="drink" onsubmit="addDrink(this, event)" onchange="checkFormIsValid(this, event)">
+    <h3>Напиток</h3>
+    <div>
+        <label>Тип</label>
+        <label><input type="radio" name="drink" value="coffee" required> Кофе </label>
+        <label><input type="radio" name="drink" value="cola" required> Кола </label>
+    </div>
+    <button name="submit" type="submit" disabled>Добавить</button>
+</form>
+
+<div id="orders"></div>
+
+</body>
+</html>
