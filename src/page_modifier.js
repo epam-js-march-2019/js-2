@@ -17,6 +17,7 @@ function addOrderItemOnPage(orderItem) {
     order.innerHTML = productDescription + deleteButton;
     let orderItems = document.getElementById("order-items");
     orderItems.appendChild(order);
+    _clearOrderInfo();
 }
 /**
  * Функция для обновления данных на страницу
@@ -27,6 +28,7 @@ function refreshOrderItemOnPage(orderItem) {
     let orderItemOnPage = document.getElementById(orderItem.getId());
     let regEx = new RegExp("\\d+"+UNIT_OF_MEASUREMENT_UNIT, "g");
     orderItemOnPage.innerHTML = orderItemOnPage.innerHTML.replace(regEx, orderItem.getNumber() + UNIT_OF_MEASUREMENT_UNIT);
+    _clearOrderInfo();
 }
 /**
  * Функция для обновления данных на страницу
@@ -35,6 +37,7 @@ function refreshOrderItemOnPage(orderItem) {
  */
 function deleteOrderItemFromPage(orderItemId) {
     document.getElementById(orderItemId).remove();
+    _clearOrderInfo();
 }
 /**
  * Функция для отображения стоимости заказа
@@ -68,6 +71,21 @@ function showOrderCalories(sum) {
         orderInfo.appendChild(sumCalories);
     } else {
         calories.innerText = calories.innerText.replace(/\d+.*\d*/, sum);
+    }
+}
+/**
+ * Функция для очищения информации о заказе при каких-либо изменениях в нем.
+ *
+ * @private
+ */
+function _clearOrderInfo() {
+    let price = document.getElementById("price");
+    if (price !== null) {
+        price.remove()
+    }
+    let calories = document.getElementById("calories");
+    if (calories !== null) {
+        calories.remove();
     }
 }
 
