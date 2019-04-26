@@ -37,7 +37,6 @@ function addHamburger(form, event) {
     let hamburger = new Hamburger(size, stuff);
     order.addOrderItem(hamburger);
 }
-
 /**
  * Функция - слушатель, для добавления салата в заказ
  *
@@ -67,7 +66,6 @@ function addSalad(form, event) {
 
     order.addOrderItem(salad, weight);
 }
-
 /**
  * Функция - слушатель, для добавления напитка в заказ
  *
@@ -91,7 +89,6 @@ function addDrink(form, event) {
 
     order.addOrderItem(drink);
 }
-
 /**
  * Функция - слушатель, для удаления позиции из заказа
  *
@@ -102,7 +99,12 @@ function deleteOrderItem(orderItemId, event) {
     event.preventDefault();
     order.deleteOrDecreaseNumberOfItems(orderItemId);
 }
-
+/**
+ * Функция - слушатель, для проверки валидности формы, критерий - required radio-buttons are checked.
+ *
+ * @param form Данные с формы
+ * @param event Событие
+ */
 function checkFormIsValid(form, event){
     event.preventDefault();
     let requiredFields = Array.from(form.querySelectorAll('input[type="radio"][required]'));
@@ -124,4 +126,29 @@ function checkFormIsValid(form, event){
         form.elements['submit'].disabled = false;
     }
 }
-
+/**
+ * Функция - слушатель, для получения цены заказа
+ *
+ */
+function getOrderPrice() {
+    order.getSumPrice();
+}
+/**
+ * Функция - слушатель, для получения кол-ва коллорий в заказе
+ *
+ */
+function getOrderCalories() {
+    order.getSumCalories();
+}
+/**
+ * Функция - слушатель, для "оплаты" заказа
+ *
+ */
+function closeOrder(){
+    let menu = document.getElementById("menu");
+    menu.classList.add("disabledDiv");
+    let orderItems = document.getElementById("order-items");
+    orderItems.classList.add("disabledDiv");
+    let closeOrder = document.getElementById("closeOrder");
+    closeOrder.classList.add("disabledDiv");
+}

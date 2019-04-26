@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body { background: url(img/picture.jpg) }
+
+#menu {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 48%;
+    margin: 1%;
+}
+#work-side {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 48%;
+    margin: 1%;
+}
+.mw280 {
+    min-width: 260px;
+}
+
+.my-style {
+    background: lavender;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+img {
+    content: 'centr';
+    width: 220px;
+}
+
+.disabledDiv {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.button-margin {
+    margin: 5px;
+}
+

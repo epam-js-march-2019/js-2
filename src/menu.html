@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Fast food</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="menu.css">
     <script src="entity/product_info.js"></script>
     <script src="entity/hamburger.js"></script>
     <script src="entity/salad.js"></script>
@@ -10,47 +12,74 @@
     <script src="entity/menu_item.js"></script>
     <script src="entity/order_item.js"></script>
     <script src="entity/order.js"></script>
+    <script src="page_modifier.js"></script>
     <script src="listeners.js"></script>
 </head>
 <body>
-<form id="hamburger" onsubmit="addHamburger(this, event)" onchange="checkFormIsValid(this, event)">
-    <h3>Гамбургер</h3>
-    <div>
-        <label>Размер</label>
-        <label><input type="radio" name="size" value="small" required> Маленький </label>
-        <label><input type="radio" name="size" value="large" required> Большой </label>
-    </div>
-    <div>
-        <label>Начинка</label>
-        <label><input type="radio" name="stuff" value="cheese"> Сыр </label>
-        <label><input type="radio" name="stuff" value="salad"> Салат </label>
-        <label><input type="radio" name="stuff" value="potato"> Картошка </label>
-    </div>
-    <button name="submit" type="submit" disabled>Добавить</button>
-</form>
-<form id="salad" onsubmit="addSalad(this, event)" onchange="checkFormIsValid(this, event)">
-    <h3>Салат</h3>
-    <div>
-        <label>Тип</label>
-        <label><input type="radio" name="salad" value="caesar" required> Цезарь </label>
-        <label><input type="radio" name="salad" value="russian_salad" required> Оливье </label>
-    </div>
-    <div>
-        <label>Вес <input type="number" name="weight" value="100"></label>
-    </div>
-    <button name="submit" type="submit" disabled>Добавить</button>
-</form>
-<form id="drink" onsubmit="addDrink(this, event)" onchange="checkFormIsValid(this, event)">
-    <h3>Напиток</h3>
-    <div>
-        <label>Тип</label>
-        <label><input type="radio" name="drink" value="coffee" required> Кофе </label>
-        <label><input type="radio" name="drink" value="cola" required> Кола </label>
-    </div>
-    <button name="submit" type="submit" disabled>Добавить</button>
-</form>
+<div id="menu" class="container-fluid">
+        <div class="col-xs-6 col-sm-4 mw280">
+            <form class="text-center my-style" id="hamburger" onsubmit="addHamburger(this, event)" onchange="checkFormIsValid(this, event)">
+                <h3>Гамбургер</h3>
+                <div>
+                    <img src="img/hamburger.jpg" alt="--картинка гамбургера--">
+                </div>
 
-<div id="orders"></div>
+                <label>Размер: </label>
+                <label class="form-control"><input class="radio-inline" type="radio" name="size" value="small" required> Маленький </label>
+                <label class="form-control"><input class="radio-inline" type="radio" name="size" value="large" required> Большой </label>
+
+                <label>Топинг: </label>
+                <label class="form-control"><input type="radio" name="stuff" value="cheese"> Сыр </label>
+                <label class="form-control"><input type="radio" name="stuff" value="salad"> Салат </label>
+                <label class="form-control"><input type="radio" name="stuff" value="potato"> Картошка </label>
+                <label class="form-control"><input type="radio" name="stuff" value="undefined"> Без топинга </label>
+
+                <button class="btn btn-primary" name="submit" type="submit" disabled>Добавить</button>
+            </form>
+        </div>
+        <div class="col-xs-6 col-sm-4 mw280">
+            <form class="text-center my-style" id="salad" onsubmit="addSalad(this, event)" onchange="checkFormIsValid(this, event)">
+                <h3>Салат</h3>
+                <div>
+                    <img src="img/salad.png" alt="--картинка салата--">
+                </div>
+
+                <label>Тип:</label>
+                <label class="form-control"><input type="radio" name="salad" value="caesar" required> Цезарь </label>
+                <label class="form-control"><input type="radio" name="salad" value="russian_salad" required> Оливье </label>
+
+                <label>Вес, г. <input type="number" size="10" name="weight" value="100"></label>
+
+                <button class="btn btn-primary" name="submit" type="submit" disabled>Добавить</button>
+            </form>
+        </div>
+        <div class="col-xs-6 col-sm-4 mw280">
+            <form class="text-center my-style" id="drink" onsubmit="addDrink(this, event)" onchange="checkFormIsValid(this, event)">
+                <h3>Напиток</h3>
+                <div>
+                    <img src="img/drink.jpg" alt="--картинка напитка--">
+                </div>
+
+                <label>Тип:</label>
+                <label class="form-control"><input type="radio" name="drink" value="coffee" required> Кофе </label>
+                <label class="form-control"><input type="radio" name="drink" value="cola" required> Кола </label>
+
+                <button class="btn btn-primary" name="submit" type="submit" disabled>Добавить</button>
+            </form>
+        </div>
+</div>
+
+<div id="work-side">
+    <div id="info" class="text-center my-style">
+        <h3>Информация о заказе</h3>
+        <button class="btn btn-primary" name="bill" onclick="getOrderPrice()">Посчитать сумму</button>
+        <button class="btn btn-primary" name="calories" onclick="getOrderCalories()">Посчитать каллорийность</button>
+    </div>
+    <div id="order-items">
+        <h3 class="text-center my-style">Заказ</h3>
+    </div>
+    <button class="btn btn-primary button-margin pull-right" id="closeOrder" onclick="closeOrder()">Оплатить</button>
+</div>
 
 </body>
 </html>
