@@ -1,3 +1,5 @@
+const UNIT_OF_MEASUREMENT_GRAM = " грамм";
+
 /**
  * Класс, объекты которого описывают салаты в меню.
  *
@@ -6,7 +8,7 @@
  * @constructor
  */
 function Salad(salad, weight) {
-    this._salad = new MenuItem(salad.getName() + " " + weight +" грамм",
+    this._salad = new MenuItem(salad.getName() + " " + weight + UNIT_OF_MEASUREMENT_GRAM,
                                salad.getPrice() * (weight / 100),
                                salad.getCalories() * (weight / 100));
     this._weight = weight;

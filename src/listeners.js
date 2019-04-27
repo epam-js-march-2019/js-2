@@ -157,11 +157,11 @@ function closeOrder(){
 }
 
 /**
- * Вспомогательная функция для получения выбранного значения в группе элементов формы
+ * Вспомогательная функция для получения значения checked элемента с формы
  *
  * @param form Данные с формы
  * @param groupName Название группы элементов
- * @returns {string} Значение выбранного элемента
+ * @returns {string} Значение checked элемента
  * @private
  */
 function _getValueFromForm(form, groupName) {
