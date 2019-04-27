@@ -12,8 +12,7 @@ function Salad(salad, weight) {
     this._weight = weight;
 }
 
-Salad.prototype = Object.create(ProductInfo.prototype);
-Salad.prototype.constructor = Salad;
+Salad.prototype = Object.create(productInfo);
 Salad.prototype.getWeight = function () {
     return this._weight;
 };

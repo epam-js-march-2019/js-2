@@ -11,8 +11,7 @@ function Hamburger(type, stuffing) {
     this._stuffing = stuffing;
 }
 
-Hamburger.prototype = Object.create(ProductInfo.prototype);
-Hamburger.prototype.constructor = Hamburger;
+Hamburger.prototype = Object.create(productInfo);
 Hamburger.prototype.getSize = function () {
     return this._size.getName();
 };

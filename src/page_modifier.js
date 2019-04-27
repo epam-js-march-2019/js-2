@@ -1,6 +1,7 @@
 const UNIT_OF_MEASUREMENT_UNIT = " шт.";
 const COUNT_OF_CALORIES = "Колличество каллорий в заказе: ";
 const PRICE = "Цена заказа (тугрики): ";
+const DELETE_BUTTON_TEXT = "Удалить 1";
 /**
  * Функция для добавления данных на страницу
  *
@@ -9,7 +10,8 @@ const PRICE = "Цена заказа (тугрики): ";
 function addOrderItemOnPage(orderItem) {
     let productDescription = "<p>" + orderItem.getDish().getName() + ": " +
         + orderItem.getNumber() + UNIT_OF_MEASUREMENT_UNIT +"</p>";
-    let deleteButton = "<button class='btn btn-primary' onClick='deleteOrderItem(" + orderItem.getId() + ", event)'>Удалить</button>";
+    let deleteButton = "<button class='btn btn-primary' onClick='deleteOrderItem(" + orderItem.getId() + ", event)'>"
+                        + DELETE_BUTTON_TEXT + "</button>";
 
     let order = document.createElement('div');
     order.setAttribute("id", orderItem.getId());

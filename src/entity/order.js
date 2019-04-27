@@ -8,6 +8,7 @@ function Order() {
     this._orderItems = [];
 }
 
+// создаем 1 объект с которым работаем
 const order = new Order();
 
 /**
