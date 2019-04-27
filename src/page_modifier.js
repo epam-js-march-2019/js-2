@@ -1,7 +1,7 @@
 const UNIT_OF_MEASUREMENT_UNIT = " шт.";
 const COUNT_OF_CALORIES = "Колличество каллорий в заказе: ";
 const PRICE = "Цена заказа (тугрики): ";
-const DELETE_BUTTON_TEXT = "Удалить 1";
+const DELETE_BUTTON_TEXT = "Удалить 1 шт.";
 /**
  * Функция для добавления данных на страницу
  *
@@ -10,15 +10,20 @@ const DELETE_BUTTON_TEXT = "Удалить 1";
 function addOrderItemOnPage(orderItem) {
     let productDescription = "<p>" + orderItem.getDish().getName() + ": " +
         + orderItem.getNumber() + UNIT_OF_MEASUREMENT_UNIT +"</p>";
-    let deleteButton = "<button class='btn btn-primary' onClick='deleteOrderItem(" + orderItem.getId() + ", event)'>"
-                        + DELETE_BUTTON_TEXT + "</button>";
 
     let order = document.createElement('div');
     order.setAttribute("id", orderItem.getId());
     order.setAttribute("class", "my-style");
-    order.innerHTML = productDescription + deleteButton;
+    order.innerHTML = productDescription;
+
     let orderItems = document.getElementById("order-items");
     orderItems.appendChild(order);
+
+    let deleteButton = document.createElement('button');
+    deleteButton.setAttribute("class", "btn btn-primary");
+    deleteButton.setAttribute("onclick", "deleteOrderItem(" + orderItem.getId() + ", event)");
+    deleteButton.innerText = DELETE_BUTTON_TEXT;
+    order.appendChild(deleteButton);
     _clearOrderInfo();
 }
 /**
@@ -28,8 +33,8 @@ function addOrderItemOnPage(orderItem) {
  */
 function refreshOrderItemOnPage(orderItem) {
     let orderItemOnPage = document.getElementById(orderItem.getId());
-    let regEx = new RegExp("\\d+"+UNIT_OF_MEASUREMENT_UNIT, "g");
-    orderItemOnPage.innerHTML = orderItemOnPage.innerHTML.replace(regEx, orderItem.getNumber() + UNIT_OF_MEASUREMENT_UNIT);
+    let regEx = new RegExp("\\d+" + UNIT_OF_MEASUREMENT_UNIT + "</p>", "g");
+    orderItemOnPage.innerHTML = orderItemOnPage.innerHTML.replace(regEx, orderItem.getNumber() + UNIT_OF_MEASUREMENT_UNIT + "</p>");
     _clearOrderInfo();
 }
 /**
