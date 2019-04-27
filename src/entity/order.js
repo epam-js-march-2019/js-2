@@ -76,6 +76,6 @@ Order.prototype.getSumPrice = function() {
  */
 Order.prototype.getSumCalories = function() {
     let sum = 0;
-    this._orderItems.forEach(item => sum += item.getDish().getCalories());
+    this._orderItems.forEach(item => sum += (item.getDish().getCalories() * item.getNumber()));
     showOrderCalories(sum);
 };

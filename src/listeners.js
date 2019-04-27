@@ -6,8 +6,9 @@
  */
 function addHamburger(form, event) {
     event.preventDefault();
-    let size = form.elements['size'].value;
-    let stuff = form.elements['stuff'].value;
+    let size = _getValueFromForm(form,'size');
+    let stuff = _getValueFromForm(form,'stuff');
+    let hamburger;
 
     switch (size) {
         case 'small':
@@ -17,6 +18,7 @@ function addHamburger(form, event) {
             size = Hamburger.SIZE_LARGE;
             break;
         default:
+            alert("Please choose hamburger size.");
             return;
     }
 
@@ -30,11 +32,9 @@ function addHamburger(form, event) {
         case 'potato':
             stuff = Hamburger.STUFFING_POTATO;
             break;
-        default:
-            stuff = null;
     }
 
-    let hamburger = new Hamburger(size, stuff);
+    hamburger = new Hamburger(size, stuff);
     order.addOrderItem(hamburger);
 }
 /**
@@ -45,14 +45,15 @@ function addHamburger(form, event) {
  */
 function addSalad(form, event) {
     event.preventDefault();
-    let salad = form.elements['salad'].value;
+    let saladType = _getValueFromForm(form,'salad');
     let weight = form.elements['weight'].value;
-
     if (weight === undefined || weight < 1) {
-        alert("Please type the valid weight before salad ordering.");
+        alert("Please type a valid weight before salad ordering.");
         return;
     }
-    switch (salad) {
+
+    let salad;
+    switch (saladType) {
         case 'caesar':
             salad = new Salad(Salad.CAESAR, weight);
             break;
@@ -64,7 +65,7 @@ function addSalad(form, event) {
             return;
     }
 
-    order.addOrderItem(salad, weight);
+    order.addOrderItem(salad);
 }
 /**
  * Функция - слушатель, для добавления напитка в заказ
@@ -74,9 +75,10 @@ function addSalad(form, event) {
  */
 function addDrink(form, event) {
     event.preventDefault();
-    let drink = form.elements['drink'].value;
+    let drinkType = _getValueFromForm(form,'drink');
 
-    switch (drink) {
+    let drink;
+    switch (drinkType) {
         case 'coffee':
             drink = new Drink(Drink.COFFEE);
             break;
@@ -84,6 +86,7 @@ function addDrink(form, event) {
             drink = new Drink(Drink.COLA);
             break;
         default:
+            alert("Please choose a drink.");
             return;
     }
 
@@ -151,4 +154,23 @@ function closeOrder(){
     orderItems.classList.add("disabledDiv");
     let closeOrder = document.getElementById("closeOrder");
     closeOrder.classList.add("disabledDiv");
+}
+
+/**
+ * Вспомогательная функция для получения выбранного значения в группе элементов формы
+ *
+ * @param form Данные с формы
+ * @param groupName Название группы элементов
+ * @returns {string} Значение выбранного элемента
+ * @private
+ */
+function _getValueFromForm(form, groupName) {
+    let value = undefined;
+    // For supporting Edge browser we use this way to get the value.
+    Array.from(form.elements[groupName]).forEach(item => {
+        if (item.checked) {
+            value = item.value;
+        }
+    });
+    return value;
 }
