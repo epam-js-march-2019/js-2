@@ -8,28 +8,22 @@ function ProductInfo() {
 
 ProductInfo.prototype.getPrice = function () {
     let price = 0;
-    for (let field in this) {
-        if (this[field] instanceof MenuItem) {
-            price += this[field].getPrice();
-        }
-    }
+    Object.values(this).forEach(field =>
+        price += field instanceof MenuItem ? field.getPrice() : 0);
     return price;
 };
 ProductInfo.prototype.getCalories = function () {
     let calories = 0;
-    for (let field in this) {
-        if (this[field] instanceof MenuItem) {
-            calories += this[field].getCalories();
-        }
-    }
+    Object.values(this).forEach(field =>
+        calories += field instanceof MenuItem ? field.getCalories() : 0);
     return calories;
 };
 ProductInfo.prototype.getName = function () {
     let arr = [];
-    for (let field in this) {
-        if (this[field] instanceof MenuItem) {
-            arr.push(this[field].getName());
+    Object.values(this).forEach(field => {
+        if (field instanceof MenuItem) {
+            arr.push(field.getName());
         }
-    }
+    });
     return arr.join(" ");
 };
