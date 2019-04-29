@@ -5,79 +5,79 @@
  */
 function Order() {
     this._newItemId = 1;
-    this._orderItems = [];
+    this.orderItems = [];
 }
-
-// создаем 1 объект с которым работаем
-const order = new Order();
-
+Order.prototype.getLengthOfOrderItems = function () {
+    return this.orderItems.length;
+};
 /**
  * Функция для добавления позиций меню в заказ
  *
  * @param dish Блюдо из меню
+ * @return {OrderItem} Сформированная позиция заказа
  */
 Order.prototype.addOrderItem = function (dish) {
     let orderItem;
     let index = -1;
-    for (let i = 0; i < this._orderItems.length; i++) {
-        if (this._orderItems[i].getDish().getName() === dish.getName()) {
+    for (let i = 0; i < this.orderItems.length; i++) {
+        if (this.orderItems[i].getDish().getName() === dish.getName()) {
             index = i;
         }
     }
     if (index === -1) {
         orderItem = new OrderItem(this._newItemId++, dish, 1);
-        this._orderItems.push(orderItem);
-        addOrderItemOnPage(orderItem, UNIT_OF_MEASUREMENT_UNIT);
+        this.orderItems.push(orderItem);
     } else {
-        orderItem = this._orderItems[index];
+        orderItem = this.orderItems[index];
         orderItem.increaseNumber();
-        this._orderItems.splice(index, 1, orderItem);
-        refreshOrderItemOnPage(orderItem);
+        this.orderItems.splice(index, 1, orderItem);
     }
+    return orderItem;
 };
 /**
  * Функция для удаления или обновления позиций меню в заказе
  *
  * @param orderItemId Id элемента на странице
+ * @return {OrderItem} Элемент orderItem из списка заказа или undefined, если нет такого элемента
  */
-Order.prototype.deleteOrDecreaseNumberOfItems = function (orderItemId) {
+Order.prototype.deleteOneOrderItemById = function (orderItemId) {
     let orderItem;
     let index = -1;
-    for (let i = 0; i < this._orderItems.length; i++) {
-        if (this._orderItems[i].getId() === orderItemId) {
+    for (let i = 0; i < this.orderItems.length; i++) {
+        if (this.orderItems[i].getId() === orderItemId) {
             index = i;
         }
     }
     if (index === -1) {
-        alert("Can't find the item.");
-        return;
+        return undefined;
     }
-    orderItem = this._orderItems[index];
-    if (orderItem.getNumber() <= 1){
-        this._orderItems.splice(index, 1);
-        deleteOrderItemFromPage(orderItemId);
+    orderItem = this.orderItems[index];
+    orderItem.decreaseNumber();
+    if (orderItem.getNumber() > 0){
+        this.orderItems.splice(index, 1, orderItem);
     } else {
-        orderItem.decreaseNumber();
-        this._orderItems.splice(index, 1, orderItem);
-        refreshOrderItemOnPage(orderItem);
+        this.orderItems.splice(index, 1);
     }
+    return orderItem;
 };
 /**
  * Функция для получения стоимости заказа
  *
+ * @return {number} Сумма тугриков всех пунктов заказа
  */
-Order.prototype.getSumPrice = function() {
+Order.prototype.getOrderPrice = function() {
     let sum = 0;
-    this._orderItems.forEach(item => sum = sum + (item.getDish().getPrice() * item.getNumber()));
-    showOrderPrice(sum);
+    this.orderItems.forEach(item => sum = sum + (item.getDish().getPrice() * item.getNumber()));
+    return sum;
 };
 /**
  * Функция для получения кол-ва калорий в заказе
  *
+ * @return {number} Общее колличество каллорий всех пунктов заказа
  */
-Order.prototype.getSumCalories = function() {
+Order.prototype.getOrderCalories = function() {
     let sum = 0;
-    this._orderItems.forEach(item => sum += (item.getDish().getCalories() * item.getNumber()));
+    this.orderItems.forEach(item => sum += (item.getDish().getCalories() * item.getNumber()));
     // This is for rounding number of calories
-    showOrderCalories(Math.round(sum ));
+    return (Math.round(sum));
 };

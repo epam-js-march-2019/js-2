@@ -21,9 +21,10 @@ function addOrderItemOnPage(orderItem) {
 
     let deleteButton = document.createElement('button');
     deleteButton.setAttribute("class", "btn btn-primary");
-    deleteButton.setAttribute("onclick", "deleteOrderItem(" + orderItem.getId() + ", event)");
+    deleteButton.setAttribute("onclick", "deleteOneOrderItemById(" + orderItem.getId() + ", event)");
     deleteButton.innerText = DELETE_BUTTON_TEXT;
     order.appendChild(deleteButton);
+    _refreshAvailabilityOfPayButton();
     _clearOrderInfo();
 }
 /**
@@ -35,6 +36,7 @@ function refreshOrderItemOnPage(orderItem) {
     let orderItemOnPage = document.getElementById(orderItem.getId());
     let regEx = new RegExp("\\d+" + UNIT_OF_MEASUREMENT_UNIT + "</p>", "g");
     orderItemOnPage.innerHTML = orderItemOnPage.innerHTML.replace(regEx, orderItem.getNumber() + UNIT_OF_MEASUREMENT_UNIT + "</p>");
+    _refreshAvailabilityOfPayButton();
     _clearOrderInfo();
 }
 /**
@@ -44,6 +46,7 @@ function refreshOrderItemOnPage(orderItem) {
  */
 function deleteOrderItemFromPage(orderItemId) {
     document.getElementById(orderItemId).remove();
+    _refreshAvailabilityOfPayButton();
     _clearOrderInfo();
 }
 /**
@@ -81,6 +84,18 @@ function showOrderCalories(sum) {
     }
 }
 /**
+ * Функция для блокировки элементов после оплаты.
+ *
+ */
+function closeOrder(){
+    let menu = document.getElementById("menu");
+    menu.classList.add("disabledDiv");
+    let orderItems = document.getElementById("order-items");
+    orderItems.classList.add("disabledDiv");
+    let closeOrder = document.getElementById("payOrder");
+    closeOrder.setAttribute("disabled", "");
+}
+/**
  * Функция для очищения информации о заказе при каких-либо изменениях в нем.
  *
  * @private
@@ -93,6 +108,19 @@ function _clearOrderInfo() {
     let calories = document.getElementById("calories");
     if (calories !== null) {
         calories.remove();
+    }
+}
+/**
+ * Функция для обновления доступности кнопки оплаты заказа.
+ *
+ * @private
+ */
+function _refreshAvailabilityOfPayButton() {
+    let closeOrder = document.getElementById("payOrder");
+    if (order.getLengthOfOrderItems() > 0) {
+        closeOrder.removeAttribute("disabled");
+    } else {
+        closeOrder.setAttribute("disabled", "");
     }
 }
 

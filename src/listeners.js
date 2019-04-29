@@ -1,3 +1,6 @@
+// создаем 1 объект с которым работаем
+const order = new Order();
+
 /**
  * Функция - слушатель, для добавления гамбургера в заказ
  *
@@ -32,10 +35,13 @@ function addHamburger(form, event) {
         case 'potato':
             stuff = Hamburger.STUFFING_POTATO;
             break;
+        default:
+            stuff = undefined;
     }
 
     hamburger = new Hamburger(size, stuff);
-    order.addOrderItem(hamburger);
+    let orderItem = order.addOrderItem(hamburger);
+    _addOrderItemOnPage(orderItem);
 }
 /**
  * Функция - слушатель, для добавления салата в заказ
@@ -65,7 +71,9 @@ function addSalad(form, event) {
             return;
     }
 
-    order.addOrderItem(salad);
+    let orderItem = order.addOrderItem(salad);
+    _addOrderItemOnPage(orderItem);
+
 }
 /**
  * Функция - слушатель, для добавления напитка в заказ
@@ -90,7 +98,8 @@ function addDrink(form, event) {
             return;
     }
 
-    order.addOrderItem(drink);
+    let orderItem = order.addOrderItem(drink);
+    _addOrderItemOnPage(orderItem);
 }
 /**
  * Функция - слушатель, для удаления позиции из заказа
@@ -98,9 +107,16 @@ function addDrink(form, event) {
  * @param orderItemId id элемента, который нужно удалить
  * @param event Событие
  */
-function deleteOrderItem(orderItemId, event) {
+function deleteOneOrderItemById(orderItemId, event) {
     event.preventDefault();
-    order.deleteOrDecreaseNumberOfItems(orderItemId);
+    let orderItem = order.deleteOneOrderItemById(orderItemId);
+    if (orderItem === undefined) {
+        alert("Can't find the item.");
+    } else if (orderItem.getNumber() > 0) {
+        refreshOrderItemOnPage(orderItem);
+    } else {
+        deleteOrderItemFromPage(orderItemId);
+    }
 }
 /**
  * Функция - слушатель, для проверки валидности формы, критерий - required radio-buttons are checked.
@@ -134,28 +150,38 @@ function checkFormIsValid(form, event){
  *
  */
 function getOrderPrice() {
-    order.getSumPrice();
+    let orderPrice = order.getOrderPrice();
+    showOrderPrice(orderPrice);
 }
 /**
  * Функция - слушатель, для получения кол-ва коллорий в заказе
  *
  */
 function getOrderCalories() {
-    order.getSumCalories();
+    let orderCalories = order.getOrderCalories();
+    showOrderCalories(orderCalories);
 }
 /**
  * Функция - слушатель, для "оплаты" заказа
  *
  */
-function closeOrder(){
-    let menu = document.getElementById("menu");
-    menu.classList.add("disabledDiv");
-    let orderItems = document.getElementById("order-items");
-    orderItems.classList.add("disabledDiv");
-    let closeOrder = document.getElementById("closeOrder");
-    closeOrder.classList.add("disabledDiv");
+function payOrder(){
+    // Место для логики оплаты
+    closeOrder();
 }
-
+/**
+ * Вспомогательная функция для корректного отображения позиции заказа
+ *
+ * @param orderItem Элемент описывающий позицию заказа
+ * @private
+ */
+function _addOrderItemOnPage(orderItem) {
+    if (orderItem.getNumber() === 1) {
+        addOrderItemOnPage(orderItem, UNIT_OF_MEASUREMENT_UNIT);
+    } else {
+        refreshOrderItemOnPage(orderItem);
+    }
+}
 /**
  * Вспомогательная функция для получения значения checked элемента с формы
  *
