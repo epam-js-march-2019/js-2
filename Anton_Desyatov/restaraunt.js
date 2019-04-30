@@ -16,12 +16,12 @@ var Order = {
                 var size;
                 var stuffing;
             if(document.getElementById("smallHamburger").checked){
-                size = "small";
+                size = Hamburger.SIZE_SMALL;
                 calories = Hamburger.SIZE_SMALL_CALORIES;
                 price = Hamburger.SIZE_SMALL_PRICE;
             }
             else{
-                size ="big";
+                size =Hamburger.SIZE_BIG;
                 calories = Hamburger.SIZE_BIG_CALORIES;
                 price = Hamburger.SIZE_BIG_PRICE;
             }
@@ -50,19 +50,19 @@ var Order = {
             if(document.getElementById("saladOlivie").checked){
                 calories = Salad.OLIVIE_CALORIES;
                 price = Salad.OLIVIE_PRICE;
-                type = "Olivie";
+                type = Salad.TYPE_OLIVIE;
             }
             else{
                 calories = Salad.CAESAR_CALORIES;
                 price = Salad.CAESAR_PRICE;
-                type = "Caesar";
+                type = Salad.TYPE_CAESAR;
             }
 
             Array.prototype.slice.call(document.getElementsByName("weight")).map(function(curr){
                 if(curr.checked){
                     weight =+ +curr.value;
 
-                    if(type === "Olivie"){
+                    if(type === Salad.TYPE_OLIVIE){
                         calories = Salad.OLIVIE_CALORIES * +curr.value / Salad.DEFAULT_WEIGHT;
                         price = Salad.OLIVIE_PRICE * +curr.value / Salad.DEFAULT_WEIGHT;
                     }
@@ -85,12 +85,12 @@ var Order = {
             if(document.getElementById("drinkCola").checked){
                 calories = Drink.COLA_CALORIES;
                 price = Drink.COLA_PRICE;
-                type = "Cola";
+                type = Drink.TYPE_COLA;
             }
             else{
                 calories = Drink.COFFEE_CALORIES;
                 price = Drink.COFFEE_CALORIES;
-                type = "Coffee";
+                type = Drink.TYPE_COFFEE;
             }
             var drink = new Drink(calories,price,type,id);
             this.items.push(drink);
@@ -131,7 +131,7 @@ var Order = {
         if(item.name.includes("Salad")){
             Node.innerHTML += "<p>" + "Weight=" + item.getWeight() + " gram" + "</p>";
         }
-        Node.innerHTML += "<p>" + "Calories=" + item.getCalories() + " Price=" + item.getPrice()+ "</p>";
+        Node.innerHTML += "<p>" + "Calories = " + item.getCalories() + " Price=" + item.getPrice()+ "</p>";
         Node.innerHTML += "<button class='deleteButton' onclick='order.removeItem(this.parentNode.id)'>delete</button>";
         document.getElementsByClassName("currentOrderList")[0].appendChild(Node);
     },
@@ -155,8 +155,8 @@ var Order = {
             order.calories += curr.getCalories();
             order.price += curr.getPrice();
         });
-        document.getElementsByClassName("totalWorth")[0].innerHTML="Калории заказа = " + order.calories +
-            "\nЦена заказа = " + order.price;
+        document.getElementsByClassName("totalWorth")[0].innerHTML=Order.CALORIES + order.calories +
+            "\n" + Order.PRICE + order.price;
     },
 
     finishOrder: function(){
@@ -190,9 +190,11 @@ Food.prototype.getId = function(){
     return this.id;
 };
 
+Order.CALORIES = "Калории заказа = ";
+Order.PRICE = "Цена заказа =";
 
-function Hamburger(calories,price,size,stuffing,id) {
-    this.name = "Hamburger";
+    function Hamburger(calories,price,size,stuffing,id) {
+    this.name = Hamburger.NAME;
     this.size = size;
     this.calories = calories;
     this.price = price;
@@ -213,6 +215,9 @@ function Hamburger(calories,price,size,stuffing,id) {
     }
 }
 
+Hamburger.NAME = "Hamburger";
+Hamburger.SIZE_SMALL = "small";
+Hamburger.SIZE_BIG = "big";
 //Hamburger sizing price
 Hamburger.SIZE_SMALL_PRICE = 50;
 Hamburger.SIZE_BIG_PRICE = 100;
@@ -234,13 +239,16 @@ function Salad(calories,price,weight,type,id) {
     this.price = price;
     this.id = id;
     this.type = type;
-    this.name ="Salad " + type;
+    this.name =Salad.NAME + type;
 
     this.getWeight = function(){
         return this.weight;
     }
 }
 
+Salad.NAME = "Salad ";
+Salad.TYPE_OLIVIE = "Olivie";
+Salad.TYPE_CAESAR = "Caesar";
 //Salad type price for 100 gram
 Salad.CAESAR_PRICE = 100;
 Salad.OLIVIE_PRICE = 50;
@@ -254,10 +262,13 @@ function Drink(calories, price, type, id) {
     this.calories = calories;
     this.price = price;
     this.type = type;
-    this.name ="Drink " + type;
+    this.name =Drink.NAME + type;
     this.id = id;
 }
 
+Drink.NAME = "Drink ";
+Drink.TYPE_COLA = "Cola";
+Drink.TYPE_COFFEE = "Coffee";
 //Drink type price
 Drink.COLA_PRICE = 50;
 Drink.COFFEE_PRICE = 80;
