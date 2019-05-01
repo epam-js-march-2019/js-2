@@ -8,9 +8,9 @@ class Food {
 		return _price;
 	}
 
-	constructor(calories, price){
-		_calories = calories;
-		_price = price;
+	constructor(options){
+		_calories = options.calories;
+		_price = options.price;
 	}
 }
 
@@ -27,9 +27,9 @@ class Hamburger extends Food {
 		return _stuffing;
 	}
 
-	constructor(size, stuffing){
-		_size = size;
-		_stuffing = stuffing;
+	constructor(options){
+		_size = options.size;
+		_stuffing = options.stuffing;
 	}
 }
 
@@ -47,9 +47,9 @@ class Salad extends Food {
 		return _type;
 	}
 
-	constructor(weight, type){
-		_weight = weight;
-		_type = type;
+	constructor(options){
+		_weight = options.weight;
+		_type = options.type;
 	}
 }
 
@@ -63,8 +63,8 @@ class Drink extends Food {
 		return _type;
 	}
 
-	constructor(type){
-		_type = type;
+	constructor(options){
+		_type = options.type;
 	}
 }
 
@@ -74,21 +74,9 @@ class Stuffing extends Food {
 	get flavor() {
 		return _flavor;
 	}
-	constructor(price, calories, flavor){
-		_flavor = flavor;
+	constructor(options){
+		_flavor = options.flavor;
 	}
 }
 
 
-class FoodFactory {
-	makeFood(type) {};
-}
-
-class HamburgerFactory extends FoodFactory {
-	makeFood(size, stuffing) {
-let calories, price;
-switch(size) {
-	case "big"
-	}
-}
-}
