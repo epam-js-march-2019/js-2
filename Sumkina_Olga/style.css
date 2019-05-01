@@ -1,0 +1,9 @@
+.order {
+	border: 1px black solid;
+	width: 400px;
+}
+
+.order__criteria td{
+	border: 1px solid black;
+}
+
