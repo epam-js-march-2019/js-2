@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <link rel="stylesheet" href="Cafe_Menu_Style.css">
+</head>
+<body>
+
+    <h1>Меню</h1>
+    <section class="menu">
+    <form onsubmit="addHamburgerButton(this,event)">
+        <h3>Гамбургеры</h3>
+        <p>Выбери размер гамбургера:</p>
+        <input name="hamburger" type="radio" value="small" required> S<br>
+        <input name="hamburger" type="radio" value="large" required> L<br>
+        <p>Выбери начинку:</p>
+        <input type="radio" value="stuffing_cheese" name = "stuffing"required>Сыр<br>
+        <input type="radio" value="stuffing_salad" name = "stuffing" required>Салат<br>
+        <input type="radio" value="stuffing_potato" name = "stuffing" required>Картошечка<br>
+        <p>Введи кол-во:</p>
+        <input name="amountHamburgerField" type="number" placeholder="0 шт" pattern="^[ 0-9]+$" id="hamburgerAmount" min="1" required><br>
+        <br><button name="add_button1" type="submit">Добавить</button> <input type="reset" value="Сбросить">
+    </form>
+
+    <form onsubmit="addSaladButton(this, event)">
+        <h3>Салаты</h3>
+        <p>Выбери салат:</p>
+        <input name="salad" type="radio" value="caesar" required> Цезарь<br>
+        <input name="salad" type="radio" value="russian_salad" required> Оливье<br>
+        <p>Введи кол-во в граммах:</p>
+            <input name="amountSaladField" type="number" placeholder="100 гр" pattern="^[ 0-9]+$" min="100" step="50" required>
+            <p><button name="add_button" type="submit">Добавить</button> <input type="reset" value="Сбросить"></p>
+    </form>
+
+    <form onsubmit="addDrinksButton(this, event)">
+        <h3>Напитки</h3>
+        <p>Выбери напиток:</p>
+        <input name="drink" type="radio" value="cola" required> Кола<br>
+        <input name="drink" type="radio" value="coffee" required> Кофе<br><br>
+        <p>Введи кол-во:</p>
+        <input name="amountDrinksField" type="number" placeholder="0 шт" pattern="^[ 0-9]+$" id="drinkAmount" min="1" required><br>
+        <p><button name="add_button" type="submit">Добавить</button> <input type="reset" value="Сбросить"></p>
+    </form>
+    </section>
+
+    <form class="result_form">
+    <p>Ваш заказ:</p>
+        <ul id="order_list">
+        </ul>
+    <p>Сумма к оплате: <output  id="sum_result"></output></p>
+    <p>Всего ккал: <output id="kcal_result"></output></p>
+    <input type="submit" value="Оплатить заказ" onclick="makeOrderButton()">
+    </form>
+
+    <script src="Cafe_Menu_FormActions.js"></script>
+    <script src="Menu_Food.js"></script>
+    <script src="Hamburgers.js"></script>
+    <script src="Salad.js"></script>
+    <script src="Drinks.js"></script>
+    <script src="Order.js"></script>
+</body>
+</html>

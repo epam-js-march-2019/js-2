@@ -1,0 +1,17 @@
+.menu {
+    display:flex;
+    align-content: flex-start;
+}
+form {
+    margin: 0px 20px 20px 20px;
+    align-items: stretch;
+}
+.result_form {
+    border: 4px double black;
+    padding: 5px;
+}
+
+h1{
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
