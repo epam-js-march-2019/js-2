@@ -7,36 +7,53 @@
 	<link href="style.css" rel="stylesheet"/> 
 </head>
 <body>
+	<section class="menu">
 
-	<div>
-		<h2>Hamburger</h2>
-		<img>
-		<form>
-			<input type="radio" name="">
-			<input type="radio" name="">
-			<section>
-				<option></option>
-				<option></option>
-				<option></option>
-			</section>
-			<input type="submit" name="">
-		</form>
-	</div>
+		<div class="menu__hamburger food">
+			<h2>Hamburger</h2>
+			<img src="img/hamburger.png">
+			<form>
+				<input type="radio" name="small">Small <br>
+				<input type="radio" name="large">Large <br>
+				<label for="stuffing">Stuffing</label><br>
+				<select id="stuffing">
+					<option>Cheese</option>
+					<option>Potato</option>
+					<option>Salad</option>
+				</select><br>
+				<input type="text" name="">Amount<br>
+				<input id="add-hamburger" type="submit" value="Add">
+			</form>
+		</div>
 
-	<div>
-		<h2>Salad</h2>
-		<img>
-		<form>
-			<input type="radio" name="">
-			<input type="radio" name="">
-			<input type="submit" name="">
-		</form>
-	</div>
+		<div class="menu__salad food">
+			<h2>Salad</h2>
+			<img src="img/salad.png">
+			<form>
+				<input type="radio" name="ceasar">Ceasar <br>
+				<input type="radio" name="russian_salad">Russian Salad<br>
+				<input type="text" name="weight"> gr<br>
+				<input type="text" name="">Amount<br>
+				<input id="add-salad" type="submit" value="Add">
+			</form>
+		</div>
 
-<div id="done-order">
-	
-</div>
-	
+		<div class="menu__drink food">
+			<h2>Drink</h2>
+			<img src="img/drink.png">
+			<form>
+				<input type="radio" name="coffee">Coffee<br>
+				<input type="radio" name="Cola">Coca Cola<br>
+				<input type="text" name="">Amount<br>
+				<input id="add-drink" type="submit" value="Add">
+			</form>
+		</div>
+
+		
+	</section>
+	<div id="done-order">
+
+		</div>
 <!-- 
 	<script type="text/javascript" src='script.js'></script> -->
 	<script type="text/javascript" src='sprite.js'></script>

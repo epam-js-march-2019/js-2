@@ -77,39 +77,65 @@ constructor(options){
 }
 }
 
-
 // Salad
 
 class Salad extends Food {
+	static FOOD_TYPE = "Salad";
+	static CEASAR = "Ceasar";
+	static RUSSIAN_SALAD = "Russian salad";
+
 	
 // todo: override price & calories depending on weight
 
 get weight() {
-	return _weight;
+	return this._weight;
 }
 
 get type() {
-	return _type;
+	return this._type;
 }
 
 constructor(options){
-	_weight = options.weight;
-	_type = options.type;
+
+	super(options);
+	switch(options.typeSalad){
+		case Salad.CEASAR: this.increment(100, 20);
+		break;
+		case Salad.RUSSIAN_SALAD: this.increment(50, 80);
+		break;
+		default: console.error("Unknown type of salad " + options.typeSalad);
+	}
+
+	this._weight = options.weight;
+	this._type = options.typeSalad;
+
 }
 }
 
 // Drink 
 
 class Drink extends Food {
-	
+	static FOOD_TYPE = "Drink";
+	static COFFEE = "Coffee";
+	static COLA = "Cola";
 // tdo: override p&c
 
 get type() {
-	return _type;
+	return this._type;
 }
 
 constructor(options){
-	_type = options.type;
+
+	super(options);
+	switch (options.typeDrink){
+		case Drink.COFFEE: this.increment(50, 40);
+		break;
+		case Drink.COLA: this.increment(80, 20);
+		break;
+		default: console.error("Unknown type of drink " + options.typeDrink);
+	}
+
+	this._type = options.typeDrink;
 }
 }
 
