@@ -1,0 +1,113 @@
+body{
+    background: #B2CCCC;
+}
+html {
+    font-size: 62.5%;
+}
+article{
+    background: #00b3e3;
+}
+.form{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50rem;
+}
+.burger{
+    display: flex;
+    justify-content: center;
+}
+.btnTotal{
+    margin:2rem 0;
+}
+.title{
+    text-align: center;
+    font-size: 1.5rem;
+}
+.small-burger{
+    display: flex;
+    justify-content: center;
+}
+.big-burger{
+    display: flex;
+    justify-content: center;
+}
+.burger__btn{
+    width: 10rem;
+}
+.salad-container{
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    padding-left:14rem; 
+    
+}
+.salad-stuff{
+    text-align: center;       
+}
+#notes li {
+    position: relative;
+    width: 25rem;
+    min-height: 10rem;
+    margin: 6rem;
+    padding: 4rem 1.5rem 1.5rem 1.5rem;
+    background: #ffc;
+    box-shadow: 0 1px 2px rgba(0,0,0,.5);
+    display:inline-block;
+    vertical-align: top;
+}
+
+#notes li::before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 11.5rem;
+    top: -1.5rem;
+    width: 7.5rem;
+    height: 2.5rem;
+    z-index: 2;
+    background-color: rgba(243,245,228,0.5);
+    border: 2px solid rgba(255,255,255,0.5);
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+    transform: rotate(-3deg);
+}
+.burger__btn:hover{
+    background: rgb(185, 11, 98);
+}
+.deleteButton{
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+}
+.deleteButton:hover{
+    background: darkred;
+}
+.drink{
+    position: relative;
+    padding: 2rem 3rem;
+}
+.drink-container{
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+}
+.constructOrder{
+    padding: 5rem 3rem;
+}
+.btnTotal{
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+}
+.small-burger{
+    margin: 1rem 2rem;
+}
+.btn-salad:hover{
+    background: greenyellow;
+}
+.btn-drink:hover{
+    background: blue;
+}
+.btnTotal:hover{
+    background: gold;
+}

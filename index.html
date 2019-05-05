@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu Burger(Alex Shabunin)</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<article class="form">
+    <fieldset class="burger">
+        <div class="title">Hamburger:</div>
+        <hr>
+        <div class="small-burger">
+            <button class="burger__btn" id="btn_burger">Small burger</button>
+            <div class="ham-staff-small">
+                <label for="small-cheese">Cheese</label>
+                <input class="ham-stuff" type="radio" id="small-cheese" value="cheese" name="stuffing">
+                <label for="small-salad">Salad</label>
+                <input class="ham-stuff" type="radio" id="small-salad" value="salad" name="stuffing">
+                <label for="small-potato">Potato</label>
+                <input class="ham-stuff" type="radio" id="small-potato" value="potato" name="stuffing">
+            </div>
+        </div>
+
+        <div class="big-burger">
+            <button class="burger__btn" id="big-burger">Big burger</button>
+            <div class="ham-staff-big">
+                <label for="big-cheese">Cheese</label>
+                <input class="ham-stuff" type="radio" id="big-cheese" value="cheese" name="stuffing-big">
+                <label for="big-salad">Salad</label>
+                <input class="ham-stuff" type="radio" id="big-salad" value="salad" name="stuffing-big">
+                <label for="big-potato">Potato</label>
+                <input class="ham-stuff" type="radio" id="big-potato" value="potato" name="stuffing-big">
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="salad">
+        <div class="title">Salad:</div>
+        <hr>
+        <div class="salad-container">
+            <button class="btn-salad" id="btn__olive">Olive</button>
+            <button class="btn-salad" id="btn__caesar">Caesar</button>
+            <label for="salad-count"></label>
+            <input class="salad-stuff" type="number" step="50" min="100" id="salad-count" value="100">
+        </div>
+    </fieldset>
+    <fieldset class="drink">
+        <div class="title">Drink:</div>
+        <hr>
+        <div class="drink-container">
+            <button class="btn-drink" id="drink-cola-btn">Cola</button>
+            <button class="btn-drink" id="drink-coffee-btn">Coffee</button>
+        </div>
+    </fieldset>
+    <fieldset class="constructOrder">
+        <div class="title">Construct your Order</div>
+        <button class="btnTotal" id = "total">Buy</button>
+        <button class="deleteButton" id="dltP"> Delete last position </button>
+    </fieldset>
+    <ul id="notes">
+        <li id="first"><p>Your order:</p></li>
+    </ul>
+</article>
+<script src="jquery-3.3.1.min.js"></script>
+<script src="food.js"></script>
+<script src="hamburger.js"></script>
+<script src="salad.js"></script>
+<script src="drink.js"></script>
+<script src="order.js"></script>
+<script src="live.js"></script>
+</body>
+</html>
