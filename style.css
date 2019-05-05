@@ -1,0 +1,22 @@
+body {
+    padding: 0;
+    margin:0;
+}
+.heading {
+    margin-left: 50px;
+}
+.menu-list{
+    float:left;
+    margin: 0 100px;
+    width: 400px;
+}
+.order{
+    float: left;
+}
+.stuffings>li:hover {
+    background-color: #1894ce11;
+}
+.stuffings>li:hover::after {
+    content: "добавить";
+    color: rgba(194, 43, 43, 20);
+}
