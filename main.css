@@ -13,10 +13,7 @@ article{
     transform: translateX(-50%);
     width: 50rem;
 }
-.burger{
-    display: flex;
-    justify-content: center;
-}
+
 .btnTotal{
     margin:2rem 0;
 }
