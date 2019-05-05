@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Пример веб-страницы</title>
+ </head>
+ <body>
+ 	<script src="mainjs.js"></script>
+ 	<script src="jquery-3.4.1.js"></script>
+ 	<link rel="stylesheet" type="text/css" href="style.css">
+ 	<section class="menu">
+ 			<h3>Menu</h3>
+ 		<ul class=" menu menu_ul">
+ 			<li class="menu_ul_li menu_ul_li__burger" >
+ 				<div class="menuItemName">burger</div>
+ 				<span>size</span>
+ 				<select class="menu_ul_li__burger__size">
+ 					<option value="choise">choise</option>
+				  <option value="big" >big</option>
+				  <option value="small">small</option>
+				</select>
+				<span>stuffing</span>
+ 				<select class="menu_ul_li__burger__stuff">
+ 					<option value="choise">choise</option>
+				  <option value="cheese">cheese</option>
+				  <option value="salad">salad</option>
+				  <option value="potato">potato</option>
+				</select>
+				<input type="button" onclick="buyBurger()" class="buyBurger" value="Buy">
+ 			</li>
+ 			<li class="menu_ul_li">
+ 				<div class="menuItemName">salad</div>
+ 				<select class="menu_ul_li__salad">
+ 					<option value="choise">choise</option>
+
+				  <option value="olivie">olivie</option>
+				  <option value="cezar">cezar</option>
+				</select>
+				<span>gramm</span>
+				<input type="number" class="menu_ul_li__gramm" min="100" max="3000" step="50">
+				<input type="button" onclick="buySalad()" class="buySalad" value="Buy">
+ 			</li>
+ 			<li class="menu_ul_li menu_ul_li__burger">
+ 				<div class="menuItemName">drink</div>
+ 				<select class="menu_ul_li__drink">
+ 				<option value="choise">choise</option>
+				  <option value="cola">cola</option>
+				  <option value="coffee">coffee</option>
+				</select>
+				<input type="button" onclick="buyDrink()" class="buyDrink" value="Buy">
+ 			</li>
+ 		</ul>
+ 	</section>
+ 	<section class="order">
+ 		<h3>Order</h3>
+ 		<ul class="order_ul">
+ 		</ul>
+ 		<div class="order_price"></div>
+ 		<div class="order_kkal"></div>
+ 		<button onclick="order.Paid()">Pay</button>
+ 	</section>
+ </body>
+</html>
