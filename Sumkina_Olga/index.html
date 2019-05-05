@@ -12,54 +12,55 @@
 		<div class="menu__hamburger food">
 			<h2>Hamburger</h2>
 			<img src="img/hamburger.png">
-			<form>
-				<input type="radio" name="small">Small <br>
-				<input type="radio" name="large">Large <br>
+			<form class="food-builder">
+				<input type="hidden" name="type" value="hamburger">
+				<input type="radio" name="size" value="small" checked>Small <br>
+				<input type="radio" name="size" value="large">Large <br>
 				<label for="stuffing">Stuffing</label><br>
-				<select id="stuffing">
-					<option>Cheese</option>
-					<option>Potato</option>
-					<option>Salad</option>
+				<select name="stuffing" id="stuffing">
+					<option value="cheese">Cheese</option>
+					<option value="potato">Potato</option>
+					<option value="salad">Salad</option>
 				</select><br>
-				<input type="text" name="">Amount<br>
-				<input id="add-hamburger" type="submit" value="Add">
+				<input type="submit" value="Add">
 			</form>
 		</div>
 
 		<div class="menu__salad food">
 			<h2>Salad</h2>
 			<img src="img/salad.png">
-			<form>
-				<input type="radio" name="ceasar">Ceasar <br>
-				<input type="radio" name="russian_salad">Russian Salad<br>
-				<input type="text" name="weight"> gr<br>
-				<input type="text" name="">Amount<br>
-				<input id="add-salad" type="submit" value="Add">
+			<form class="food-builder">
+				<input type="hidden" name="type" value="salad">
+				<input type="radio" name="saladType" value="ceasar" checked>Ceasar <br>
+				<input type="radio" name="saladType" value="russian salad">Russian Salad<br>
+				<input type="text" name="weight" value="100"> gr<br>
+				<input type="submit" value="Add">
 			</form>
 		</div>
 
 		<div class="menu__drink food">
 			<h2>Drink</h2>
 			<img src="img/drink.png">
-			<form>
-				<input type="radio" name="coffee">Coffee<br>
-				<input type="radio" name="Cola">Coca Cola<br>
-				<input type="text" name="">Amount<br>
-				<input id="add-drink" type="submit" value="Add">
+			<form class="food-builder">
+				<input type="hidden" name="type" value="drink">
+				<input type="radio" name="drinkType" value="coffee" checked>Coffee<br>
+				<input type="radio" name="drinkType" value="cola">Coca Cola<br>
+				<input type="submit" value="Add">
 			</form>
 		</div>
 
 		
 	</section>
-	<div id="done-order">
 
-		</div>
+	<div id="pre-order"></div>
+	<div id="done-order"></div>
 <!-- 
 	<script type="text/javascript" src='script.js'></script> -->
-	<script type="text/javascript" src='sprite.js'></script>
 	<script type="text/javascript" src='order_array.js'></script>
+	<script type="text/javascript" src='pre_order_array.js'></script>
+	<script type="text/javascript" src='sprite.js'></script>
 	<script type="text/javascript" src='FoodFactory.js'></script>
 	<script type="text/javascript" src='constants.js'></script>
-
+	<script type="text/javascript" src='add_food.js'></script>
 </body>
 </html>

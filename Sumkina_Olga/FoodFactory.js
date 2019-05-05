@@ -1,13 +1,5 @@
 function FoodFactory(){};
 
-
-/*
-options = {
-	type: "hamburger", // typer ~ string
-	quantity: 5,
-	stuffing: "stafillocock"
-}
-*/
 FoodFactory.prototype.createFood = function(options){
 	//_type = undefined;
 	switch(options.type){
@@ -20,7 +12,7 @@ FoodFactory.prototype.createFood = function(options){
 		default: console.error('Unknown food type: ' + options.type);
 	}
 
-	return new this.type(options);
+	return new this.type(options); 
 }
 
 var foodFactory = new FoodFactory();
@@ -31,10 +23,14 @@ var hamburger = foodFactory.createFood({type: Hamburger.FOOD_TYPE,
 console.log(hamburger);
 
 var russianSalad = foodFactory.createFood({type: Salad.FOOD_TYPE, 
-	weight: 200, 
-	typeSalad: Salad.RUSSIAN_SALAD});
+	weight: 150, 
+	saladType: Salad.RUSSIAN_SALAD});
 console.log(russianSalad);
 
 var coffee = foodFactory.createFood({type: Drink.FOOD_TYPE,
-	typeDrink: Drink.COFFEE});
+	drinkType: Drink.COFFEE});
 console.log(coffee);
+
+var cola = foodFactory.createFood({type: Drink.FOOD_TYPE,
+	drinkType: Drink.COLA});
+console.log(cola);
