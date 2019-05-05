@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link type="text/css" rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<title>Restaurant</title>
+</head>
+
+<body>
+	<h1> Wellcome to JS restaurant demo</h1>
+
+	<div id="content">
+	<div id="left">
+		<form id="hamb" class="form">
+			<fieldset>
+				<legend>Hamburger</legend>
+
+				<div class="fieldset">
+				<h6>Size</h6>
+					<div class="form-check">
+						<input type="radio" name="hamb-type" id="hamb-small" value="small" checked />
+						<label for="hamb-small">Small [50₮] [20cal]</label>
+					</div>
+
+					<div class="form-check">
+						<input type="radio" name="hamb-type" id="hamb-big" value="big" />
+						<label for="hamb-big">Big [100₮] [40cal]</label>
+					</div>
+				</div>
+
+				<div class="fieldset">
+					<h6>Filling</h6>
+					<div class="form-check">
+						<input type="checkbox" name="hamb-cheese" id="hamb-cheese"/>
+						<label for="hamb-cheese">Cheese [10₮] [20cal]</label>
+					</div>
+
+					<div class="form-check">
+					<input type="checkbox" name="hamb-lettuce" id="hamb-lettuce"/>
+					<label for="hamb-lettuce">Lettuce [20₮] [5cal]</label>
+						</div>
+
+					<div class="form-check">
+						<input type="checkbox" name="hamb-potatoes" id="hamb-potatoes"/>
+						<label for="hamb-potatoes">Potatoes [15₮] [10cal]</label>
+					</div>
+				</div>
+
+				<div class="fieldset fieldset-amount">
+					<h6>Amount</h6>
+					<div class="form-group">
+						<input type="number" name="hamb-amount" id="hamb-amount" value="1" min="1"/>
+					</div>
+				</div>
+
+				<button type="submit" class="btn btn-primary">Add</button>
+			</fieldset>
+		</form>
+
+		<form id="salad">
+			<fieldset>
+				<legend>Salad (100g)</legend>
+
+				<div class="fieldset">
+					<div class="form-check">
+						<input type="radio" name="salad-type" id="salad-caesar" value="caesar" checked />
+						<label for="salad-caesar">Caesar [100₮] [20cal]</label>
+					</div>
+
+					<div class="form-check">
+						<input type="radio" name="salad-type" id="salad-russian" value="russianSalad" />
+						<label for ="salad-russian">Russian salad [50₮] [80cal]</label>
+					</div>
+				</div>
+
+				<div class="fieldset fieldset-amount">
+					<h6>Amount</h6>
+					<div class="form-group">
+						<input type="number" name="salad-amount" id="salad-amount" value="100" min="100" step="50"/>
+					</div>
+				</div>
+
+				<button type="submit" class="btn btn-primary">Add</button>
+			</fieldset>
+		</form>
+
+		<form id="drink">
+			<fieldset>
+				<legend>Drink</legend>
+
+					<div class="fieldset">
+						<div class="form-check">
+							<input type="radio" name="drink-type" id="drink-cola" value="cola" checked />
+							<label for="drink-cola">Cola [50₮] [40cal]</label>
+						</div>
+
+						<div class="form-check">
+							<input type="radio" name="drink-type" id="drink-coffee" value="coffee" />
+							<label for="drink-coffee">Coffee [80₮] [20cal]</label>
+						</div>
+					</div>
+
+				<div class="fieldset fieldset-amount">
+					<h6>Amount</h6>
+					<div class="form-group">
+						<input type="number" name="drink-amount" id="drink-amount" value="1" min="1"/>
+					</div>
+				</div>
+
+				<button type="submit" class="btn btn-primary">Add</button>
+			</fieldset>
+		</form>
+	</div>
+
+	<div id="right">
+		<div id="summary-contents">
+			<h4>Order summary</h4>
+			<div id="products-list"></div>
+			<div id="summary">
+				<p>Total calories: </p>
+				<p id="total-calories">0</p>
+				<p>Order summary:</p>
+				<p id="order-summary">0₮</p>
+				<button id="submit-order" class="btn btn-primary">Submit order</button>
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+	<div id="order-submitted">
+		<p>Your order has been placed</p>
+	</div>
+
+	<script type="application/javascript" src="js/app.js"></script>
+	<script type="application/javascript" src="js/Classes.js"></script>
+	<script type="application/javascript" src="js/Factory.js"></script>
+	<script type="application/javascript" src="js/AddItemEvents.js"></script>
+	<script type="application/javascript" src="js/SubmitButtonEvents.js"></script>
+</body>
+
+</html>

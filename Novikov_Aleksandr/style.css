@@ -1,0 +1,300 @@
+/*body {*/
+/*width: 100%;*/
+/*}*/
+
+#left {
+	width: 45%;
+	max-width: 400px;
+	/*display: flex;*/
+
+}
+
+#right {
+	width: 45%;
+	max-width: 350px;
+	margin-left: 30px
+}
+
+#content {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	background-color:	rgba(130,130,130,0.1);
+}
+
+.btn-primary {
+	background-color: cornflowerblue;
+	border-color: cornflowerblue;
+}
+
+@media (max-width: 600px)
+{
+	#left {
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	#right {
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	#content {
+		flex-direction: column;
+	}
+}
+
+/*@media (min-width: 1200px)*/
+/*{*/
+	/*#content {*/
+		/*justify-content: center;*/
+	/*}*/
+/*}*/
+
+
+#summary-contents {
+	margin-top: 28px;
+
+	/*border: 1px solid grey;*/
+	/*background-image: url("https://www.wplounge.nl/wp-content/uploads/2016/03/goog.png");*/
+}
+
+.cart-button {
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-weight: 900;
+	font-size: 1.8em;
+	line-height: 1em;
+	border: none;
+	background: none;
+	color: red;
+	padding: 0;
+	margin: 0;
+	height: 1em;
+	display: block;
+	padding-right: 5px;
+}
+.cart-button:hover {
+	color: darkred;
+}
+
+#order-submitted {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color:	rgba(84,84,84,0.9);
+	z-index: 1000;
+	display: none;
+}
+#order-submitted p {
+	font-weight: 900;
+	font-size: 1.2em;
+	text-align: center;
+	position: relative;
+	top: 40%;
+	margin: 0 auto;
+	line-height: 2em;
+	width: 200px;
+	background-color: white;
+}
+
+h4 {
+	text-transform: capitalize;
+	text-align: center;
+}
+
+h1 {
+	margin: 0 !important;
+	text-align: center;
+	background-color:	rgba(130,130,130,0.1);
+	padding: 20px;
+	/*color: cornflowerblue;*/
+}
+
+.btn {
+	margin: 0 auto;
+	display: block !important;
+}
+
+form {
+	/*border: 1px solid grey;*/
+	margin-top: 10px;
+	padding: 10px;
+	transition: all .2s;
+	
+	/*box-shadow: 0 0 1px 5px white inset;*/
+}
+form:hover {
+	box-shadow: 0 0 5px 1px cornflowerblue;
+}
+
+.form-group, .form-check {
+	display: block !important;
+	margin: 0 auto;
+	/*width: 300px;*/
+	/*background-color: rgba(255,255,255,.85);*/
+	/*border-radius: 20px;*/
+	font-weight: 600;
+}
+
+#hamb {
+	background-image: url("img/hamburger.jpg");
+	background-size: cover;
+}
+#salad {
+	background-image: url("img/salad.jpg");
+	background-size: cover;
+}
+
+#drink {
+	background-image: url("img/coffee.jpg");
+	background-size: cover;
+}
+
+#left input[type="number"] {
+	border: none;
+	width: 50px;
+	margin: 0 auto;
+	display: block;
+	font-weight: 600;
+}
+
+label {
+	cursor: pointer;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+   opacity: 1;
+}
+
+.fieldset {
+
+	background-color: rgba(255,255,255,.80);
+	border-radius: 20px;
+	font-weight: 600;
+	margin: 0 auto;
+}
+
+.fieldset + .fieldset {
+	margin-top: 10px;
+}
+
+.fieldset-amount {
+	max-width: 100px;
+}
+
+legend {
+	text-align: center;
+	font-weight: 900;
+	text-shadow: 0 0 2px white;
+}
+h6 {
+	max-width: 50px;
+	margin: 0 auto;
+}
+
+.cart-item {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto;
+	grid-template-areas:
+		"header header"
+		"list list"
+		"calories cost"
+		"amount amount-value";
+	grid-column-gap: 5px;
+	grid-row-gap: 10px;
+	justify-items: center;
+	align-items: center;
+	padding: 10px;
+	border: 1px solid cornflowerblue;
+	position: relative;
+	margin-top: 10px;
+}
+.cart-item:hover {
+	box-shadow: 0 0 5px 1px cornflowerblue;
+}
+.cart-item {
+	transition: all .2s;
+}
+
+
+.cart-item h4 {
+	grid-area: header
+}
+.cart-item ul {
+	grid-area: list;
+	justify-self: stretch;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	justify-items: center;
+	align-items: center;
+}
+.cart-item ul li{
+	/*display: inline;*/
+	/*float: right;*/
+}
+.cart-item p:nth-of-type(1) {
+	grid-area: calories;
+}
+.cart-item p:nth-of-type(2) {
+	grid-area: cost;
+}
+.cart-item label {
+	grid-area: amount;
+}
+.cart-item input {
+	grid-area: amount-value;
+	width: 50px;
+	font-weight: 600;
+}
+.cart-item h4,
+.cart-item ul,
+.cart-item p,
+.cart-item label,
+.cart-item input {
+	margin: 0;
+	padding: 0;
+}
+
+#summary{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto;
+	grid-template-areas:
+		"calories money"
+		"calories-value money-value"
+		"button button";
+	grid-column-gap: 5px;
+	grid-row-gap: 10px;
+	justify-items: center;
+	align-items: center;
+	margin-top: 10px;
+}
+#summary p {
+	font-weight: 900;
+}
+#total-calories {
+	grid-area: calories-value;
+}
+#order-summary {
+	grid-area: money-value;
+}
+#submit-order {
+	grid-area: button;
+}
+#summary p:nth-of-type(1) {
+	grid-area: calories;
+}
+#summary p:nth-of-type(3) {
+	grid-area: money;
+}
+#summary p {
+	padding: 0;
+	margin: 0;
+}
+
