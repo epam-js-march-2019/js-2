@@ -13,10 +13,26 @@ body {
 .order{
     float: left;
 }
-.stuffings>li:hover {
-    background-color: #1894ce11;
+.stuffings>li:hover,
+.salads>li:hover,
+.drinks>li:hover,
+.order-items>p:hover {
+    background-color: #1894ce22;
+    cursor: pointer;
 }
-.stuffings>li:hover::after {
+.stuffings>li:hover::after,
+.salads>li>ul>li:hover::after,
+.drinks>li:hover::after {
     content: "добавить";
-    color: rgba(194, 43, 43, 20);
+    color: rgba(19, 116, 43);
+    float:right;
+}
+.order-items>p{
+    position: relative;
+}
+
+.order-items>p:hover::before{
+    content: "удоли";
+    position: absolute;
+    left: -50px;
 }

@@ -39,7 +39,7 @@ Burger.prototype = Object.create(Food);
 Burger.prototype.constructor = Burger;
 
 
-
+// Конструктор салатов
 function Salad(type, weight){
   //добавить проверку аргументов
   this.price = Salad.types[type].price / 100 * weight;
@@ -56,8 +56,7 @@ Salad.types = {
 Salad.prototype = Object.create(Food);
 Salad.prototype.constructor = Salad;
 
-
-
+// Конструктор напитков
 function Drink(type){
   //добавить проверку аргументов
   this.price = Drink.types[type].price;
@@ -74,7 +73,7 @@ Drink.types = {
 Drink.prototype = Object.create(Food);
 Drink.prototype.constructor = Drink;
 
-
+// Cart-singleton object
 let Cartleton = (function () {
   let instance;
   function init() {
@@ -87,38 +86,69 @@ let Cartleton = (function () {
     //PRIVATE METHODS
     // adds new item to the order
     function addItem(item) {
+      // если заказ неоплачен можно добавлять в корзину
       if (unpayed){
         order.push(item);
+        console.log(order);
+        var p = document.createElement('p');
+        p.className = 'order-salad';
+        p.innerHTML = item.toString();
+        p.addEventListener('click', function(){
+          removeItem(this);
+          // позиция в меню такая же как в массиве объектов
+          // this — кликнутый объект
+          // var position = Array.prototype.indexOf.call(this.parentElement.children, this);
+          // console.log(this, event, position);
+        });
+        var parent = document.querySelector('.order-items');
+        parent.appendChild(p);
+        totalPrice();
+        totalCalories();        
       } else {
-        console.log('no you cant add more');
+        console.log('no you can\'t add more');
         // throw new Error("you've already payed, you can't add new items to your order")
       }
     }
     // removes item from the order
-    function removeItem() {
-      //add functionality
+    function removeItem(item) {
+      if (unpayed){
+        var position = Array.prototype.indexOf.call(item.parentElement.children, item);
+        order.splice(position, 1)
+        item.remove();
+        console.log(order);
+        totalCalories();
+        totalPrice();
+      } else {
+        console.log('no you can\'t remove items anymore');
+      };        
     }
     // calculates total price of the order
     function totalPrice() {
       price = order.reduce((sum, item) => sum + item.getPrice(), 0);
+      document.querySelector('.total-value').innerHTML = price + ' тугриков';
+      return price;
     }
     // calculates total calories of the order
     function totalCalories() {
       calories = order.reduce((sum, item) => sum + item.getCalories(), 0);
+      document.querySelector('.calories-value').innerHTML = calories + ' калорий';
+      return calories;
     }
     // blocks the order after the payment
     function payment() {
-      unpayed = false;
+      // оплатить можно только с непустым заказом
+      if (order.length){
+        unpayed = false;
+        var btn = document.querySelector('.make-order');
+        btn.disabled = true;
+        btn.innerHTML = 'заказ оплачен';
+      }
     }
 
     //public methods
     return {
       add: addItem,
-      remove: removeItem,
-      pay: payment,
-      showOrder: function(){
-        return order;
-      }
+      pay: payment
     }
   }
   return {
@@ -131,4 +161,42 @@ let Cartleton = (function () {
   };
 })();
 
-let cart = Cartleton.getInstance();
+// создаем корзину-синглтон
+var cart = Cartleton.getInstance();
+
+function helper(constructor, node){
+	var a = node.classList[0],
+		  b = node.classList[1];
+	return new constructor(a, b);
+}
+
+var burgers = document.querySelectorAll('.stuffings>li');
+var salads = document.querySelectorAll('.salads>li');
+var drinks = document.querySelectorAll('.drinks>li');
+
+// вешаем evenlistener на каждый элемент меню
+// позже: выделить эти куски в общую функцию
+burgers.forEach(function(item){
+	item.addEventListener('click',
+		function(){
+      cart.add(helper(Burger, item));
+    }
+	);
+});
+// доделать в интерфейсе возможность добавлять 
+// произвольное число грамм, конструктор позволяет
+// пока захардкодил 100г
+salads.forEach(function (item) {
+  item.addEventListener('click',
+    function () {
+      cart.add(new Salad(item.className, 100));
+    }
+  );
+});
+drinks.forEach(function (item) {
+  item.addEventListener('click',
+    function () {
+      cart.add(new Drink(item.className));
+    }
+  );
+});

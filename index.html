@@ -17,29 +17,29 @@
       <li class="small">
         маленький c (50 тугриков, 20 калорий)
         <ul class="stuffings">
-          <li>сыром (10 тугриков, 20 калорий)</li>
-          <li>салатом (20 тугриков, 5 калорий)</li>
-          <li>картошкой (15 тугриков, 10 калорий)</li>
+          <li class="small cheese">сыром (10 тугриков, 20 калорий)</li>
+          <li class="small lettuce">салатом (20 тугриков, 5 калорий)</li>
+          <li class="small potato">картошкой (15 тугриков, 10 калорий)</li>
         </ul>
       </li>
       <li class="large">
         большой (100 тугриков, 40 калорий)
         <ul class="stuffings">
-          <li>сыром (10 тугриков, 20 калорий)</li>
-          <li>салатом (20 тугриков, 5 калорий)</li>
-          <li>картошкой (15 тугриков, 10 калорий)</li>
+          <li class="large cheese">сыром (10 тугриков, 20 калорий)</li>
+          <li class="large lettuce">салатом (20 тугриков, 5 калорий)</li>
+          <li class="large potato">картошкой (15 тугриков, 10 калорий)</li>
         </ul>
       </li>
     </ul>
     <h3>салаты</h3>
     <ul class='salads'>
-      <li>
+      <li class='caesar'>
         цезарь (100 тугриков, 20 калорий)
         <ul>
-          <li>100г</li>
+          <li >100г</li>
         </ul>
       </li>
-      <li>
+      <li class="olivier">
         оливье (50 тугриков, 80 калорий)
         <ul>
           <li>100г</li>
@@ -48,15 +48,18 @@
     </ul>
     <h3>напитки</h3>
     <ul class="drinks">
-      <li>Кофе (80 тугриков, 20 калорий)</li>
-      <li>Кола (50 тугриков, 40 калорий)</li>
+      <li class="coffee">Кофе (80 тугриков, 20 калорий)</li>
+      <li class="cola">Кола (50 тугриков, 40 калорий)</li>
     </ul>
   </section>
   <section class="order">
-    <h2>заказ:</h2>
-    <p>итого: <span class="total-price"></span></p>
-    <p>калорийность: <span class="total-calories"></span></p>
-    <button>оплатить</button>
+    <h2 class="order-heading">заказ:</h2>
+    <div class="order-items">
+
+    </div>
+    <p class="total">итого: <span class="total-value"></span></p>
+    <p class="calories">калорийность: <span class="calories-value"></span></p>
+    <button class="make-order" onclick="cart.pay()">оплатить</button>
   </section>
 
 
