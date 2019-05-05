@@ -79,27 +79,7 @@
 	color: darkred;
 }
 
-#order-submitted {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	background-color:	rgba(84,84,84,0.9);
-	z-index: 1000;
-	display: none;
-}
-#order-submitted p {
-	font-weight: 900;
-	font-size: 1.2em;
-	text-align: center;
-	position: relative;
-	top: 40%;
-	margin: 0 auto;
-	line-height: 2em;
-	width: 200px;
-	background-color: white;
-}
+
 
 h4 {
 	text-transform: capitalize;
@@ -296,5 +276,28 @@ h6 {
 #summary p {
 	padding: 0;
 	margin: 0;
+}
+
+
+#order-submitted {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color:	rgba(84,84,84,0.9);
+	z-index: 1000;
+	display: none;
+}
+#order-submitted p {
+	font-weight: 900;
+	font-size: 1.2em;
+	text-align: center;
+	position: relative;
+	top: 40%;
+	margin: 0 auto;
+	line-height: 2em;
+	width: 200px;
+	background-color: white;
 }
 
