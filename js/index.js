@@ -19,7 +19,7 @@ function ready() {
 // Creates an empty cart object
 
 var userCart = new UserCart();
-
+updateCartViewTotals();
 
 // Event handlers
 
@@ -76,8 +76,12 @@ function makePaymentClicked(event) {
     if (userCart.getPaymentStatus()) {
         alert('Payment for the order has been made already.');
     } else {
-        userCart.makePayment();
-        (userCart.getPaymentStatus()) ? alert('Payment has been made successfully. Thank you for your order!') : alert('Something went wrong. Please try again later'); 
+            if (!userCart.getItems().length == 0) {
+                userCart.makePayment();
+                (userCart.getPaymentStatus()) ? alert('Payment has been made successfully. Thank you for your order!') : alert('Something went wrong. Please try again later'); 
+            } else {
+                alert ('Your cart is empty. Your need to add something to the cart first.')
+            }
     }
 };
 
