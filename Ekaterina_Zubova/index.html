@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>JS-2</title>
+  <link href="styles/styles.css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+<div class="menu">
+<ul class="menu__section menu-drinks">
+  <li class="menu__item item" data-name="Cola">
+    <p>Cola</p>
+    <p class="item__price">Price: 20</p>
+    <p class="item__calories">Calories: 40</p>
+    <button class="item__add-button" name="button-drink" value="addToOrder">Add</button>
+    <div class="item__change-buttons">
+      <button name="button-drink" value="increaseItems">+</button>
+      <span>1</span>
+      <button name="button-drink" value="decreaseItems">-</button>
+    </div>
+  </li>
+  <li class="menu__item item"  data-name="Coffee">
+    <p>Coffee</p>
+    <p class="item__price">Price: 20</p>
+    <p class="item__calories">Calories: 40</p>  
+    <button class="item__add-button" name="button-drink" value="addToOrder">Add</button>
+    <div class="item__change-buttons">
+      <button name="button-drink" value="increaseItems">+</button>
+      <span>1</span>
+      <button name="button-drink" value="decreaseItems">-</button>
+    </div>
+  </li>
+</ul>
+<ul class="menu__section menu-salads">
+  <li class="menu__item item" data-name="Olivie">
+    <p>Salad Cezar</p>
+    <input type="number" name="inputTypeNumber-salad" value="100">грамм</input>
+    <p class="item__price">Price</p>
+    <p class="item__calories">Calories</p>   
+    <button class="item__button" name="button-salad" value="addToOrder">Add</button>
+  </li>
+  <li class="menu__item item" data-name="CAESAR">
+    <p>Salad</p>
+    <input type="number" value="100">грамм</input>
+    <p class="item__price">Price</p>
+    <p class="item__calories">Calories</p>   
+    <button class="item__button" name="button-salad" value="addToOrder">Add</button>
+  </li>
+</ul>
+<ul class="menu__section menu-hamburgers">
+  <li class="menu__item item" data-name="Stuffing-cheese">
+    <p>Hamburger with cheese</p>
+    <ul>
+      <li><label><input type="radio" name="radioButton-hamburger-1" value="size-small">Small</label></li>
+      <li><label><input type="radio" name="radioButton-hamburger-1" value="size-big">Big</label></li>
+    </ul>
+    <p class="item__price">Price</p>
+    <p class="item__calories">Calories</p> 
+    <button name="button-hamburger" value="addToOrder">Add</button>
+    <div class="item__change-buttons">
+      <button name="button-hamburger" value="increaseItems">+</button>
+      <span>1</span>
+      <button name="button-hamburger" value="decreaseItems">-</button>
+    </div>
+  </li>
+  <li class="menu__item" data-name="Stuffing-potato">
+    <p>Hamburger with potato</p>
+    <ul>
+      <li><label><input type="radio" name="radioButton-hamburger-2" value="size-small">Small</label></li>
+      <li><label><input type="radio" name="radioButton-hamburger-2" value="size-big">Big</label></li>
+    </ul>
+    <p class="item__price">Price</p>
+    <p class="item__calories">Calories</p>  
+    <button name="button-hamburger" value="addToOrder">Add</button>
+    <div class="item__change-buttons">
+      <button name="button-hamburger" value="increaseItems">+</button>
+      <span>1</span>
+      <button name="button-hamburger" value="decreaseItems">-</button>
+    </div>
+  </li>
+  <li class="menu__item"  data-name="Stuffing-salad" data-class="Hamburger">
+    <p>Hamburger with salad</p>
+    <ul>
+      <li><label><input type="radio" name="radioButton-hamburger-3" value="size-small">Small</label></li>
+      <li><label><input type="radio" name="radioButton-hamburger-3" value="size-big">Big</label></li>
+    </ul>
+    <p class="item__price">Price</p>
+    <p class="item__calories">Calories</p>  
+    <button name="button-hamburger" value="addToOrder">Add</button>
+    <div class="item__change-buttons">
+      <button name="button-hamburger" value="increaseItems">+</button>
+      <span>1</span>
+      <button name="button-hamburger" value="decreaseItems">-</button>
+    </div>
+  </li>
+</ul>
+</div>
+<section class="order">
+  <table class="order__table">
+    <thead>
+    <tr class="order__header">
+      <td>Name</td>
+      <td>Price</td>
+      <td>Calories</td>
+      <td>Numbers</td>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+	<tfoot>
+    <tr class="order__footer">
+      <td>Total</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    </tfoot>
+  </table>
+  <button class="order__pay-button">Pay</button>
+</section>
+
+  <script src="js/formatText.js"></script>
+  <script src="js/menuItem.js"></script>
+  <script src="js/hamburger.js"></script>
+  <script src="js/salad.js"></script>
+  <script src="js/drink.js"></script>
+  <script src="js/order.js"></script>
+  <script src="js/orderSection.js"></script>
+  <script src="js/menuSection.js"></script>
+  <script src="js/menuSectionWithSelection.js"></script>
+  <script src="js/menuSectionWithField.js"></script>
+  <script src="js/actions.js"></script>
+
+</body>
+
+</html>

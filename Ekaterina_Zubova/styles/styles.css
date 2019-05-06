@@ -1,0 +1,32 @@
+body {
+  display: flex;
+}
+
+.menu__section {
+  display: flex;
+  width: 70%;
+}
+
+.menu__item {
+  flex: 1;
+}
+
+li {
+  list-style-type: none;
+}
+
+.item__add-button--unvisible {
+  display: none;
+}
+
+.item__add-button {
+  
+}
+
+.item__change-buttons {
+  display: none;
+}
+
+.item__change-buttons--visible {
+  display: block;
+}
