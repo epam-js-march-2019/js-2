@@ -16,7 +16,7 @@
 				<input type="hidden" name="type" value="hamburger">
 				<input type="radio" name="size" value="small" checked>Small <br>
 				<input type="radio" name="size" value="large">Large <br>
-				<label for="stuffing">Stuffing</label><br>
+				<!-- <label for="stuffing">Stuffing</label> -->
 				<select name="stuffing" id="stuffing">
 					<option value="cheese">Cheese</option>
 					<option value="potato">Potato</option>
@@ -32,8 +32,8 @@
 			<form class="food-builder">
 				<input type="hidden" name="type" value="salad">
 				<input type="radio" name="saladType" value="ceasar" checked>Ceasar <br>
-				<input type="radio" name="saladType" value="russian salad">Russian Salad<br>
-				<input type="text" name="weight" value="100"> gr<br>
+				<input type="radio" name="saladType" value="russian">Russian Salad<br>
+				<input type="number" name="weight" value="100"> gr<br>
 				<input type="submit" value="Add">
 			</form>
 		</div>
@@ -53,14 +53,18 @@
 	</section>
 
 	<div id="pre-order"></div>
+	<audio id="checkout-audio" src="audio/checkout.mp3"></audio>
 	<div id="done-order"></div>
 <!-- 
-	<script type="text/javascript" src='script.js'></script> -->
-	<script type="text/javascript" src='order_array.js'></script>
-	<script type="text/javascript" src='pre_order_array.js'></script>
-	<script type="text/javascript" src='sprite.js'></script>
-	<script type="text/javascript" src='FoodFactory.js'></script>
-	<script type="text/javascript" src='constants.js'></script>
-	<script type="text/javascript" src='add_food.js'></script>
+	<script type="text/javascript" src='js/script.js'></script> -->
+	<script type="text/javascript" src='js/view_component.js'></script>
+	<script type="text/javascript" src='js/food.js'></script>
+	<script type="text/javascript" src='js/FoodFactory.js'></script>
+	<script type="text/javascript" src='js/constants.js'></script>
+	<script type="text/javascript" src='js/add_food.js'></script>
+
+	<script type="text/javascript" src='js/shopping_cart.js'></script>
+
+	<script type="text/javascript" src='js/main.js'></script>
 </body>
 </html>

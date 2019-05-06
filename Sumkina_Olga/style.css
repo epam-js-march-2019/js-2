@@ -3,6 +3,10 @@
 	width: 400px;
 }
 
+.order.current {
+	border: 2px black solid;
+}
+
 .order__criteria td{
 	border: 1px solid black;
 }
@@ -26,4 +30,12 @@
 
 .editable-position {
 	background-color: red;
+}
+
+audio {
+	display: none;
+}
+
+table.current tr.food-item:hover {
+background-color: #f8f;
 }
