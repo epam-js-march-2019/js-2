@@ -122,7 +122,7 @@ Order.prototype.addOrder = function(position) {
     if (!this.isPaid) {
         this.args.push(position)
     } else {
-        console.log("Вы уже оплатили заказ");
+        alert("You paid for the order, so you can't change order.");    
     }
 }
 
@@ -130,7 +130,7 @@ Order.prototype.deleteOrder = function(item) {
     if (!this.isPaid) {
         this.args.splice(this.args.indexOf(item), 1)
     } else {
-        alert("Вы уже оплатили заказ");
+        alert("You paid for the order, so you can't change order.");
     }
 }
 
@@ -152,15 +152,15 @@ Order.prototype.getFinalPrice = function() {
 
 Order.prototype.Paid = function() {
     if(order.args.length == 0){
-		alert('Корзина пуста!');
+		alert('Order is empty!');
         return;
 	};
     if (order.isPaid) {
-        alert('Вы уже оплатили заказ!');
+        alert('You paid for the order!');
         return;
     }
     this.isPaid = true;
-    alert('Вы оплатили заказ.')
+    alert('You paid for the order. Order is accepted.')
 }
 
 
@@ -171,7 +171,7 @@ var order = new Order();
 
 function buyBurger() {
     if (order.isPaid) {
-        alert('Вы уже оплатили заказ! Добавлять нельзя!');
+        alert("You paid for the order, so you can't change order.");
         return;
     }
     var BurgerStuffVal = $(".menu_ul_li__burger__stuff")[0].value;
@@ -210,7 +210,7 @@ function buyBurger() {
 
 function buySalad() {
     if (order.isPaid) {
-        alert('Вы уже оплатили заказ! Добавлять нельзя!');
+        alert("You paid for the order, so you can't change order.");
         return;
     }
     var SaladVal = $(".menu_ul_li__salad")[0].value;
@@ -236,7 +236,7 @@ function buySalad() {
 
 function buyDrink() {
     if (order.isPaid) {
-        alert('Вы уже оплатили заказ! Добавлять нельзя!');
+        alert("You paid for the order, so you can't change order.");
         return;
     }
     var DrinkTypeVal = $(".menu_ul_li__drink")[0].value;
