@@ -5,4 +5,13 @@ li{
  	font-size: 20pt;
  	padding: 20px 20px 0px 0px
  }
- 
+ .menu_ul{
+	display: flex;
+    flex-direction: row;
+ }
+.menu_ul_li {
+	display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+
+ }
