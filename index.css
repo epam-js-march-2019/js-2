@@ -1,0 +1,28 @@
+
+
+.main-menu{
+    display: flex;
+    justify-content: center;
+    vertical-align: center;
+    flex-direction: column;
+    width: 500px;
+    margin: 5px;
+    list-style: none;
+}
+
+.hamburger{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+
+
+.salads_list{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
