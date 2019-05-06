@@ -151,6 +151,10 @@ Order.prototype.getFinalPrice = function() {
     ;
 
 Order.prototype.Paid = function() {
+    if(order.args.length == 0){
+		alert('Корзина пуста!');
+        return;
+	};
     if (order.isPaid) {
         alert('Вы уже оплатили заказ!');
         return;
