@@ -12,7 +12,7 @@ var preOrderParent = document.getElementById('pre-order');
 
 var updatePreOrderArray = function(food){
 	preOrder.items.push(food);
-	preOrderParent.innerHTML = addOrder(preOrder);
+	preOrderParent.innerHTML = addOrder(preOrder, 'Click for removing positions');
 }
 
 foodBuilders.forEach(function(foodBuilder){

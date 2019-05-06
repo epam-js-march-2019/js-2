@@ -46,9 +46,10 @@ var ordersTable = "";
 	parent.innerHTML = ordersTable;
 }
 
-var addOrder = function(order) {
+var addOrder = function(order, state) {
 
-	return  `<table class="order">\
+	return  `<p>${state}</p> \
+	<table class="order">\
 	<caption>order #${order.id}</caption> \
 	<tr class="order__criteria criteria"> \
 	<td class="criteria__id">#</td> \
@@ -56,7 +57,7 @@ var addOrder = function(order) {
 	<td class="criteria__price-position">Price</td> \
 	<td class="criteria__calories">Calories</td> \
 	</tr>\
-	${addOrderItems(order.items)}\
+	${addOrderItems(order.items, 'editable-position')}\
 	<tr class="order-datails"> \
 	<td colspan="2" align="right">TOTAL</td> \
 	<td>$${totalPrice(order.items)}</td> \
@@ -83,11 +84,11 @@ var totalCalories = function(items){
 	return sum;
 }
 
-var addOrderItems = function(items) {
+var addOrderItems = function(items, action) {
 	var index = 1;
 	var rows = "";
 	items.forEach(function(item) {
-		rows += `<tr> \
+		rows += `<tr class="${action}" data-id="${index}"> \
 		<td>${index++}</td> \
 		<td>${item.name}</td> \
 		<td>${item.price}</td> \
@@ -101,3 +102,12 @@ var addOrderItems = function(items) {
 var doneOrder = document.getElementById('done-order');
 
 addOrderTable(orderArray, doneOrder);
+
+var positons = document.querySelectorAll('.editable-position');
+
+positons.forEach(function(position){
+	position.addEventListener('click', function(e){
+		var dataId = e.getAttribute('data-id');
+		return dataId;
+	})
+})

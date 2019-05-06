@@ -23,3 +23,7 @@
 .food img {
 	width: 100px;
 }
+
+.editable-position {
+	background-color: red;
+}
