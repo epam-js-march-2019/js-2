@@ -171,7 +171,7 @@ function helper(constructor, node){
 }
 
 var burgers = document.querySelectorAll('.stuffings>li');
-var salads = document.querySelectorAll('.salads>li');
+var salads = document.querySelectorAll('.salads button');
 var drinks = document.querySelectorAll('.drinks>li');
 
 // вешаем evenlistener на каждый элемент меню
@@ -189,7 +189,12 @@ burgers.forEach(function(item){
 salads.forEach(function (item) {
   item.addEventListener('click',
     function () {
-      cart.add(new Salad(item.className, 100));
+      var inputField = item.previousElementSibling,
+          value = inputField.value;
+      if (inputField.checkValidity()){
+        value = Number(value) || 100;
+        cart.add(new Salad(inputField.id, value));
+      }
     }
   );
 });

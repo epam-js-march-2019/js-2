@@ -36,13 +36,24 @@
       <li class='caesar'>
         цезарь (100 тугриков, 20 калорий)
         <ul>
-          <li >100г</li>
+          <li>
+            <input size="6" maxlength="5" type="text" 
+            name="weight" id="caesar" placeholder="100г"
+            pattern="\d{2,4}(\s?[gGuГ])?">
+            <button>добавить</button>
+          </li>
         </ul>
       </li>
       <li class="olivier">
         оливье (50 тугриков, 80 калорий)
         <ul>
-          <li>100г</li>
+          <li>
+            <input size="6" maxlength="5" type="text"
+            name="weight" id="olivier" placeholder="100г"
+            pattern="\d{2,4}">
+            <!-- (\s?[gGuГ])?  паттерн для 100г 21 Г и 234g b 2134G -->
+            <button>добавить</button>
+          </li>
         </ul>
       </li>
     </ul>
