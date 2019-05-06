@@ -1,9 +1,6 @@
 const currentOrderParent = document.getElementById('pre-order');
 const orderListParent = document.getElementById('done-order');
 const shoppingCart = new ShoppingCart(currentOrderParent, orderListParent);
-console.log(currentOrderParent);
-console.log(orderListParent);
-console.log(shoppingCart);
 
 var foodBuilders = document.querySelectorAll('.food-builder');
 foodBuilders.forEach(function(foodBuilder){

@@ -11,18 +11,9 @@ class ShoppingCart {
 	}
 
 	submitOrder() {
-		console.log("SUBMIT ORDER");
-		console.log(this._currentOrder);
-		console.log(this._orderList);
-
-this._currentOrder.id = this._nextOrderId++;
-		this._orderList.unshift(this._currentOrder);
-		console.log("UNSHIFT ORDER");
-		console.log(this._currentOrder);
-		console.log(this._orderList);
-		
+		this._currentOrder.id = this._nextOrderId++;
+		this._orderList.unshift(this._currentOrder);		
 		this._clearCurrentOrder();
-		console.log("clear current order: " + this._currentOrder);
 		this._updateCurrentOrderView();
 		this._updateOrderListView();
 	}
@@ -38,20 +29,19 @@ this._currentOrder.id = this._nextOrderId++;
 		addOrderTable(this._currentOrder, this._currentOrderParent);
 		var shoppingCart = this;
 
-		var foodItemRows = this._currentOrderParent.querySelectorAll('.food-item');
-		foodItemRows.forEach(function(e) {
-			e.addEventListener('click', function() {
-				shoppingCart.removeFoodItem(this.dataset.id);
-			});
+		addClickListener(this._currentOrderParent.querySelectorAll('.controls .duplicate'), function() {
+			var itemCopy = shoppingCart._currentOrder.items[this.dataset.id];
+			shoppingCart.addFoodItem(itemCopy);
 		});
 
-		var orderSubmitButton = this._currentOrderParent.querySelectorAll('input[type="submit"]');
-		orderSubmitButton.forEach(function(e) {
-			e.addEventListener('click', function() {
-				console.log('hui')
-				shoppingCart.submitOrder();
-			});
+		addClickListener(this._currentOrderParent.querySelectorAll('.controls .remove'), function() {
+			shoppingCart.removeFoodItem(this.dataset.id);
 		});
+
+		addClickListener(this._currentOrderParent.querySelectorAll('input[type="submit"]'), function() {
+			shoppingCart.submitOrder();
+		})
+
 	}
 
 	_updateOrderListView() {
@@ -67,4 +57,10 @@ this._currentOrder.id = this._nextOrderId++;
 		this._nextOrderId = 1;
 	}
 
+}
+
+var addClickListener = function (elementList, clickListener) {
+	elementList.forEach(function(e) {
+		e.addEventListener('click', clickListener);
+	});
 }

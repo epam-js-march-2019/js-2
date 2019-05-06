@@ -36,6 +36,44 @@ audio {
 	display: none;
 }
 
+.food-item:hover {
+	/*content: attr(data-title);*/
+	/*position: absolute; 
+    left: 20%; top: 40%; 
+    z-index: 1; */
+    /*cursor: url(img/cursor.png), pointer;*/
+    
+}
+
 table.current tr.food-item:hover {
-background-color: #f8f;
+	background-color: #f8f;
+}
+
+td {
+	position: relative;
+}
+
+.controls {
+	position: absolute;
+	display: none;
+	cursor: default;
+	padding: 5px 10px 0 0;
+	margin: 0;
+	border-radius: 3px;
+	top: -5px;
+	right: 0;
+	background-color: lightsteelblue;
+}
+
+.current tr:hover .controls {
+	display: inline;
+}
+
+.controls > * {
+	margin-left: 10px;
+	display: inline;
+}
+
+.controls > *:hover {
+	cursor: pointer;
 }

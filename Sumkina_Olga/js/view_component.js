@@ -1,55 +1,15 @@
-// var orderArray = [
-// { id: 1,
-// 	items: [
-// 	{
-// 		name: 'hamburger1',
-// 		price: 100,
-// 		calories: 200
-// 	},
-// 	{
-// 		name: 'dfgdgdg',
-// 		price: 1050,
-// 		calories: 2050
-// 	},
-// 	{
-// 		name: 'hamburger3',
-// 		price: 100,
-// 		calories: 200
-// 	}]
-// },
-// { id: 2,
-// 	items: [
-// 	{
-// 		name: 'hamburge4r',
-// 		price: 100,
-// 		calories: 200
-// 	},
-// 	{
-// 		name: 'hamburger5',
-// 		price: 100,
-// 		calories: 200
-// 	},
-// 	{
-// 		name: 'hamburger6',
-// 		price: 100,
-// 		calories: 200
-// 	}]
-// }
-// ]
-
-
 var addOrderTable =  function(orderList, parent) {
 	if(Array.isArray(orderList)) {
 		var ordersTable = "";
 		orderList.forEach(function(order) {
-			ordersTable += addOrder(order);
+			ordersTable += drawOrderTable(order);
 			ordersTable += '<br/>';
 		});
 		parent.innerHTML = ordersTable;
 	}
 	else if (orderList.items.length > 0) {
 		// single non-empty order is a current order
-		var currentOrder = addOrder(orderList, true);
+		var currentOrder = drawOrderTable(orderList, true);
 		currentOrder += '<input type="submit" value="Check Out"></input>';
 		parent.innerHTML = currentOrder;
 		var chechoutButton = parent.getElementsByTagName('input')[0];
@@ -62,7 +22,7 @@ var addOrderTable =  function(orderList, parent) {
 	}
 }
 
-var addOrder = function(order, isCurrent) {
+var drawOrderTable = function(order, isCurrent) {
 	return `<table class="order ${isCurrent ? "current" : ""}">\
 	<caption>order #${order.id}</caption> \
 	<tr class="order__criteria criteria"> \
@@ -103,12 +63,18 @@ var addOrderItems = function(items) {
 	var index = 0;
 	var rows = "";
 	items.forEach(function(item) {
-		rows += `<tr class="food-item" data-id="${index++}"> \
-		<td>${index}</td> \
-		<td>${item.name}</td> \
-		<td>${item.price}</td> \
-		<td>${item.calories}</td> \
+		rows += `<tr class="food-item">
+		<td>${index + 1}</td>
+		<td>${item.name}
+		<ul class="controls">
+		<li class="duplicate" data-id="${index}"">+</li>
+		<li class="remove" data-id="${index}"><img src="img/cursor.png"></img></li>
+		</ul>
+		</td>
+		<td>${item.price}</td>
+		<td>${item.calories}</td>
 		</tr>`
+		index++;
 	});
 
 	return rows;

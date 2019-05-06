@@ -29,7 +29,6 @@ class Food {
 	}
 }
 
-// Hamburger
 class Hamburger extends Food {
 
 	static FOOD_TYPE = 'hamburger';
@@ -78,8 +77,6 @@ class Hamburger extends Food {
 	}
 }
 
-// Salad
-
 class Salad extends Food {
 	static FOOD_TYPE = "salad";
 	static CEASAR = "ceasar";
@@ -95,7 +92,6 @@ class Salad extends Food {
 	}
 
 	constructor(options){
-
 		super(options);
 		const servings = options.weight / Salad.SERVING_WEIGHT;
 		switch(options.saladType){
@@ -114,8 +110,6 @@ class Salad extends Food {
 		return `${this.type} salad (${this.weight}g)`
 	}
 }
-
-// Drink 
 
 class Drink extends Food {
 	static FOOD_TYPE = "drink";
