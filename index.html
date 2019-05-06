@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hamburger Factory</title>
+    <link rel="stylesheet" href="style.css" media="screen" type="text/css" />
+</head>
+<body>
+<!--- Menu Section --->
+    <div class="menu">
+	   <div class = "menu-section">
+	   	 <div class="section-header">
+	       <h2>Small Hamburgers</h2> 
+	      </div>	      
+	       <div class="section-items">
+                <div class="section-item">
+                    <div>
+                    <span class="section-item-title">Small hamburger</span> 
+                    <span class="section-item-details">(20 kcal)</span>                    
+                    <div class="section-item-price">50.00 MNT</div>
+                    </div> 
+                    <span class="section-item-addition">with cheese</span> 
+                    <span class="section-item-details">(+20 kcal)</span>                    
+                    <div class="section-item-price">+10.00 MNT</div>
+                    <div class="section-item-quantity">
+                    <input type="hidden" type="number" value="1"> 
+                	</div>
+                    <button class="btn add-to-cart-button" type="button" name="hamburger" data-type="size_small" data-stuffing="stuffing_cheese">Add to cart</button>
+                </div>
+                <div class="section-item">
+                    <div>
+                    <span class="section-item-title">Small hamburger</span> 
+                    <span class="section-item-details">(20 kcal)</span>                    
+                    <div class="section-item-price">50.00 MNT</div>
+                    </div> 
+                    <span class="section-item-addition">with salad</span> 
+                    <span class="section-item-details">(+5 kcal)</span>                    
+                    <div class="section-item-price">+20.00 MNT</div>
+                    <div class="section-item-quantity">
+                    <input type="hidden" type="number" value="1"> 
+                	</div>
+                    <button class="btn add-to-cart-button" type="button" name="hamburger" data-type="size_small" data-stuffing="stuffing_salad">Add to cart</button>
+                </div>
+                <div class="section-item">
+                    <div>
+                    <span class="section-item-title">Small hamburger</span> 
+                    <span class="section-item-details">(20 kcal)</span>                    
+                    <div class="section-item-price">50.00 MNT</div>
+                    </div> 
+                    <span class="section-item-addition">with potatoes</span> 
+                    <span class="section-item-details">(+10 kcal)</span>                    
+                    <div class="section-item-price">+15.00 MNT</div>
+                    <div class="section-item-quantity">
+                    <input type="hidden" type="number" value="1"> 
+                	</div>
+                	<button class="btn add-to-cart-button" type="button" name="hamburger" data-type="size_small" data-stuffing="stuffing_potato">Add to cart</button>
+            	</div>  
+	   		</div> 
+		</div>
+		<div class = "menu-section">
+			<div class="section-header">
+			<h2>Large Hamburgers</h2> 	       
+	       </div> 	      
+	       <div class="section-items">
+                <div class="section-item">
+                	<div>
+                    <span class="section-item-title">Large hamburger</span> 
+                    <span class="section-item-details">(40 kcal)</span>                    
+                    <div class="section-item-price">100.00 MNT</div>
+                    </div>
+                    <span class="section-item-addition">with cheese</span> 
+                    <span class="section-item-details">(+20 kcal)</span>                    
+                    <div class="section-item-price">+10.00 MNT</div>
+                    <div class="section-item-quantity">
+                    <input type="hidden" type="number" value="1"> 
+                	</div>
+                    <button class="btn add-to-cart-button" type="button" name="hamburger" data-type="size_large" data-stuffing="stuffing_cheese">Add to cart</button>
+                </div>
+                <div class="section-item">
+                	<div>
+                    <span class="section-item-title">Large hamburger</span> 
+                    <span class="section-item-details">(40 kcal)</span>                    
+                    <div class="section-item-price">100.00 MNT</div>
+                    </div>
+                    <span class="section-item-addition">with salad</span> 
+                    <span class="section-item-details">(+5 kcal)</span>                    
+                    <div class="section-item-price">+20.00 MNT</div>
+                    <div class="section-item-quantity">
+                    <input type="hidden" type="number" value="1"> 
+                	</div>
+                    <button class="btn add-to-cart-button" type="button" name="hamburger" data-type="size_large" data-stuffing="stuffing_salad">Add to cart</button>
+                </div>
+                <div class="section-item">
+                	<div>
+                    <span class="section-item-title">Large hamburger</span> 
+                    <span class="section-item-details">(40 kcal)</span>                    
+                    <div class="section-item-price">100.00 MNT</div>
+                    </div>
+                    <span class="section-item-addition">with potatoes</span> 
+                    <span class="section-item-details">(+10 kcal)</span>                    
+                    <div class="section-item-price">+15.00 MNT</div>
+                    <div class="section-item-quantity">
+                    <input type="hidden" type="number" value="1"> 
+                	</div>
+                	<button class="btn add-to-cart-button" type="button" name="hamburger" data-type="size_large" data-stuffing="stuffing_potato">Add to cart</button>
+            	</div>  
+	   		</div> 
+		</div>
+		<div class = "menu-section">
+	       <div class="section-header">
+	       <h2>Salads</h2>
+	       </div>	      
+	       <div class="section-items">
+                <div class="section-item">
+                    <span class="section-item-title">Caesar Salad</span> 
+                    <span class="section-item-details">(20 kcal/100 g)</span>                    
+                    <div class="section-item-price">100.00 MNT/100 g                                      
+                    </div>
+					<div class="section-item-quantity">
+                    <input type="number" step="50" id="quantity" min="100" max="1000"  value="100"> g
+                	</div>
+                    <button class="btn add-to-cart-button" type="button" name="salad" data-type="caesar">Add to cart</button>
+                </div>
+                <div class="section-item">
+                     <span class="section-item-title">Olivier Salad</span> 
+                    <span class="section-item-details">(80 kcal/100 g)</span>                    
+                    <div class="section-item-price">50.00 MNT/100 g                                     
+                    </div>
+                    <div class="section-item-quantity">
+                    <input type="number" step="50" id="quantity" min="100" max="1000"  value="100"> g
+                	</div>
+                    <button class="btn add-to-cart-button"type="button" name="salad" data-type="olivier">Add to cart</button>
+                </div>                
+	   		</div> 
+		</div>
+		<div class = "menu-section">
+	        <div class="section-header">
+	       <h2>Drinks</h2>   
+	        </div>
+	       	<div class="section-items">
+                <div class="section-item">
+                    <span class="section-item-title">Cola</span> 
+                    <span class="section-item-details">(40 kcal)</span>                    
+                    <div class="section-item-price">50.00 MNT                                      
+                    </div>
+                    <div class="section-item-quantity">
+                    <input type="hidden" type="number" value="1"> 
+                	</div>
+                    <button class="btn add-to-cart-button" type="button" name="drink" data-type="cola">Add to cart</button>
+                </div>
+                <div class="section-item">
+                     <span class="section-item-title">Coffee</span> 
+                    <span class="section-item-details">(20 kcal)</span>                    
+                    <div class="section-item-price">80.00 MNT</div>
+                    <div class="section-item-quantity">
+                    <input type="hidden" type="number" value="1"> 
+                	</div>
+                    <button class="btn add-to-cart-button"type="button" name="drink" data-type="coffee">Add to cart</button>
+                </div>
+	   		</div> 
+		</div>
+	</div>
+<!--- End of Menu Section --->
+
+<!--- Shopping Cart Section --->
+	<div class="shopping-cart">
+		<h2>Shopping Cart</h2>		
+			<table  id="order-table">
+			  <thead>
+				<tr>
+					<th scope="col">Item Description</th>
+					<th scope="col">Energy</th>
+					<th scope="col">Qty</th>
+					<th scope="col">Price</th>
+					<th scope="col" colspan="2">Subtotal</th>
+				</tr>
+			  </thead>
+			  <tbody>
+			  	
+			  </tbody>
+			</table>
+			<p id="total-payment">
+				<strong>Total Amount: </strong><span id="totalAmount"></span>
+			</p>
+            <p id="total-energy">
+                <strong>Energy Value: </strong><span id="totalEnergy"></span>
+            </p>
+			<ul id="shopping-cart-actions">				
+				<li>
+					<input type="submit" name="delete" id="empty-cart" class="btn btn-empty" value="Empty Cart" />
+				</li>
+				<li>
+					<input type="submit" name="pay" id="make-payment" class="btn btn-pay" value="Make Payment" />
+				</li>
+			</ul>	
+	</div>
+
+<!--- End of Shopping Cart Section --->		
+
+
+    <script src="js/CartPosition.js"></script>
+    <script src="js/Hamburger.js"></script>
+    <script src="js/Salad.js"></script>
+    <script src="js/Drink.js"></script>
+    <script src="js/UserCart.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
