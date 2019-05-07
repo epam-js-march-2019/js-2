@@ -3,10 +3,10 @@ var drinkTypes = {
   TYPE_TEA: { param: "Tea", price: 80, calorie: 20 }
 };
 
-function Drink(type, amount) {
+function Drink(type) {
   if (!!type.param) {
     this.type = type;
-    this.amount = amount;
+    this.amount = 100;
   } else {
     throw new OrderError("Needed amount");
   }

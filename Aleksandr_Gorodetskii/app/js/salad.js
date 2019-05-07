@@ -5,7 +5,7 @@ var saladTypes = {
 };
 
 function Salad(type, amount) {
-  if (!!type.param) {
+  if (!!type.param && amount > 0) {
     this.type = type;
     this.amount = amount;
   } else {

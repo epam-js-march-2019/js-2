@@ -13,54 +13,63 @@
 </head>
 
 <body>
-	<section class="is-centered controls">
-		<div class="nes-container is-rounded is-centered with-title">
+
+		<div class="nes-container is-rounded is-dark is-centered summary">
+			
+		</div>
+
+	<section class="is-centered wrapper">
+		<div class="nes-container is-rounded is-centered controls">
 			<fieldset>
-				<p class="title">adsfsdfsdf</p>
+				<div class="nes-field">
+					<label for="amount">Type amount of salad you want</label>
+					<input type="number" step="50" id="amount" class="nes-input">
+				</div>
 				<legend class="title">Salads:</legend>
-				<button type="button" class="nes-btn is-primary">Caesar</button>
-				<button type="button" class="nes-btn is-primary">Olivie</button>
+				<button type="button" class="nes-btn is-primary" data-item="Caesar">Caesar</button>
+				<button type="button" class="nes-btn is-primary" data-item="Olivie">Olivie</button>
 			</fieldset>
 			<fieldset>
 				<legend>Drinks:</legend>
-				<button type="button" class="nes-btn is-success">Tea</button>
-				<button type="button" class="nes-btn is-success">Cola</button>
+				<button type="button" class="nes-btn is-success" data-item="Tea">Tea</button>
+				<button type="button" class="nes-btn is-success" data-item="Cola">Cola</button>
 			</fieldset>
 			<fieldset>
 				<legend>Small burger:</legend>
 				<button type="button" class="nes-btn is-warning" data-item="smallBurgerCheese">With cheese</button>
 				<button type="button" class="nes-btn is-warning" data-item="smallBurgerSalad">With salad</button>
-				<button type="button" class="nes-btn is-warning" data-item="smallBurgerCheese">With potato</button>
+				<button type="button" class="nes-btn is-warning" data-item="smallBurgerPotato">With potato</button>
 			</fieldset>
 			<fieldset>
 				<legend>Big burger:</legend>
 				<button type="button" class="nes-btn is-warning" data-item="bigBurgerCheese">With cheese</button>
-				<button type="button" class="nes-btn is-warning" data-item="bigBurgerCheese">With salad</button>
-				<button type="button" class="nes-btn is-warning" data-item="bigBurgerCheese">With potato</button>
+				<button type="button" class="nes-btn is-warning" data-item="bigBurgerSalad">With salad</button>
+				<button type="button" class="nes-btn is-warning" data-item="bigBurgerPotato">With potato</button>
 			</fieldset>
-
 		</div>
-		<div class="nes-container is-rounded" <div class="lists">
-			<ul class="nes-list is-disc item-list">
-				<li>Good morning.</li>
-				<li>Thou hast had a good night's sleep, I hope.</li>
-				<li>Thou hast had a good afternoon</li>
-				<li>Good night.</li>
+
+		<div class="nes-container is-rounded menu lists">
+				<button type="button" class="nes-btn is-success purchase">Purchase</button>
+
+			<ul class="nes-list is-circle item-list">
 			</ul>
+
+
 		</div>
-		</div>
+
+
 	</section>
 	</section>
 
 
-
+	<script src="js/order.js"></script>
 	<script src="js/OrderError.js"></script>
 	<script src="js/Food.js"></script>
 	<script src="js/salad.js"></script>
 	<script src="js/Hamburger.js"></script>
 	<script src="js/drink.js"></script>
 
-	<script src="js/order.js"></script>
+
 
 	<script src="js/main.js"></script>
 	<script src="js/orderExample.js"></script>

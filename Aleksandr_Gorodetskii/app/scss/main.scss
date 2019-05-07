@@ -6,18 +6,59 @@
   box-sizing: border-box;
 }
 
-:root {
-  font-size: 10px;
-}
-
 body {
-  font-size: 1.5rem;
-  font-family: DosisLight;
-  padding: 3rem;
-	color: $text-accent;
+  // font-size: 1.1rem;
+  // font-family: DosisLight;
+  // padding: 3rem;
+	// color: $text-accent;
 	font-family: 'Press Start 2P';
 }
+fieldset {
+	margin-bottom: 25px;
+}
+.wrapper {
+	display: flex;
+}
 
+.nes-field {
+	font-size: 14px;
+	color: lightgray;
+}
+
+.summary {
+	width: 100vw;
+	height: 80px;
+}
+
+.controls {
+	width: 40vw;
+}
+
+.menu {
+	width: 60vw;
+	font-size: 13px;
+}
+
+.item-list li {
+	margin: 15px 5px;
+	text-align: left;
+}
+
+.is-warning {
+	width: 250px;
+}
+
+.is-success {
+	width: 110px;
+}
+
+.is-primary {
+	width: 110px;
+}
+
+.purchase {
+	width: 200px;
+}
 .visually-hidden:not(:focus):not(:active) {
   position: absolute;
   width: 1px;

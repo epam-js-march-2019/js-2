@@ -4,6 +4,8 @@ function Order() {
   this.isPaid = false;
 }
 
+var order = new Order();
+
 Order.prototype.getPaid = function() {
   return this.isPaid;
 };
@@ -59,3 +61,4 @@ Order.prototype.pay = function() {
   this.isPaid = true;
   Object.freeze(this.dishes);
 };
+
