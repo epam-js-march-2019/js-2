@@ -1,0 +1,78 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title> 123 </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+    <div id="burgers" class="wrap"> 
+        <h2>Choose your size!</h2>
+    <p><input id="bigSize" class="size" type="radio" name="size" value="big" checked/>
+    <label for="bigSize">Big Burger</label></p>
+    <p><input id="smallSize" class="size" type="radio" name="size" value="small"/>
+    <label for="smallSize">Small Burger</label></p>
+        <h2>Add something!</h2>
+    <p><input id="cheese" class="stuffling" type="radio" name="stuffling" value="cheese" checked/>
+    <label for="cheese">add cheese</label></p>
+    <p><input id="salad" class="stuffling" type="radio" name="stuffling" value="salad"/>
+    <label for="salad">add salad</label></p>
+    <p><input id="potato" class="stuffling" type="radio" name="stuffling" value="potato"/>
+    <label for="potato">add potato</label></p>
+    
+    <button id="addBurger" class="add-button"> Add burger </button>
+
+    </div>
+    <div  id="drink" class="wrap"> 
+
+        <h2>Choose drink!</h2>
+    <p><input id="cola" class="drinks" type="radio" name="drinks" value="cola" checked/>
+    <label for="cola">Coca Cola</label></p>
+    <p><input id="coffee" class="drinks" type="radio" name="drinks" value="coffee"/>
+    <label for="coffee">Capuccino</label></p>
+
+    <button id="addDrink" class="add-button"> Add drink </button>
+
+    </div>
+    
+
+    <div id="salads" class="wrap"> 
+
+        <h2>Choose salad!</h2>
+    <p><input id="gramms" type="text" value="100"></p>
+    <p><input id="caesar" class="salad" type="radio" name="salad" value="caesar" checked/>
+    <label for="caesar">Caesar</label></p>
+    <p><input id="olivie" class="salad" type="radio" name="salad" value="olivie"/>
+    <label for="olivie">Olivie</label></p>
+
+    <button id="addSalad" class="add-button"> Add salad </button>
+
+    </div>
+
+
+    
+</div>
+
+
+<div class="container pay"><button id="pay">Pay</button></div>
+
+<div class="container">
+    
+    <ol id="order">    
+
+    </ol>
+
+    <p id="sum"></p>
+    <p id="kcal"></p>  
+</div>
+
+<script src="order.js"></script>
+<script src="food.js"></script>
+<script src="hamburger.js"></script>
+<script src="main.js"></script>
+<script src="drink.js"></script>
+<script src="salad.js"></script>
+
+</body>
+</html>
