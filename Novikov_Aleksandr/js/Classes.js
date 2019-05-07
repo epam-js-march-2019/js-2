@@ -98,7 +98,7 @@ Object.defineProperty(Salad.prototype, 'typeToCalories', {
 });
 Object.defineProperty(Salad.prototype, 'typeToPrice', {
 	enumerable: true,
-	get: function () {return {caesar: .1, russianSalad: .5}},
+	get: function () {return {caesar: 1, russianSalad: .5}},
 });
 /* Salad constructor function complete*/
 
