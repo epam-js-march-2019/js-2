@@ -15,3 +15,4 @@ function Salad(type, amount) {
 
 Salad.prototype = Object.create(FoodItem.prototype);
 Salad.constructor = Salad;
+ 

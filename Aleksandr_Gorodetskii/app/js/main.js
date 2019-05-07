@@ -10,7 +10,7 @@ var drinks = {};
 // Match target button, create proper Item, add Item to list and check total price and total calories
 controls.addEventListener("click", function(e) {
   var targetAttr = e.target.getAttribute("data-item");
-
+ 
   switch (targetAttr) {
     case "smallBurgerCheese":
       createBurger(hamburgerTypes.SIZE_SMALL, hamburgerTypes.STUFFING_CHEESE);

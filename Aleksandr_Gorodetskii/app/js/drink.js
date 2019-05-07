@@ -14,3 +14,4 @@ function Drink(type) {
 
 Drink.prototype = Object.create(FoodItem.prototype);
 Drink.constructor = Drink;
+ 

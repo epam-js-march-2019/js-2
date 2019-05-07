@@ -42,7 +42,7 @@
 // // order.pay();
 // // order.addToOrder(saladCaesar);
 // // console.log(order.getDishes());
-
+ 
 // // Lets check size,stuffing price and cals of our burger
 // console.log("### Check size,stuffing price and cals of our burger:");
 // console.log("Size of smallBurgerCheese:  ", smallBurgerCheese.getSize());

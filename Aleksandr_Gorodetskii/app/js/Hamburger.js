@@ -32,7 +32,7 @@ Hamburger.prototype.calculatePrice = function() {
   totalPrice = mainPrice + stuffPrice;
 
   return totalPrice;
-};
+}; 
 
 Hamburger.prototype.calculateCalories = function() {
   var thisParams = this;

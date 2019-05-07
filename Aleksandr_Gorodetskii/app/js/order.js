@@ -57,4 +57,4 @@ Order.prototype.pay = function() {
   this.isPaid = true;
   Object.freeze(this.dishes);
 };
-
+ 
