@@ -6,7 +6,7 @@ function Hamburger(size, stuffing) {
     throw new OrderError("Need size and stuffing");
   }
 }
- 
+
 var hamburgerTypes = {
   SIZE_SMALL: { param: "SIZE_SMALL", price: 50, calorie: 20 },
   SIZE_LARGE: { param: "SIZE_LARGE", price: 100, calorie: 40 },

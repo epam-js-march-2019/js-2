@@ -9,7 +9,7 @@ var order = new Order();
 Order.prototype.getPaid = function() {
   return this.isPaid;
 };
-
+ 
 Order.prototype.getDishes = function() {
   return this.dishes;
 };
