@@ -97,9 +97,14 @@ controls.addEventListener("click", function(e) {
 });
 
 purchase.addEventListener("click", function() {
-	order.pay();
-	purchase.innerHTML = "Purchased"
-	purchase.classList.add("is-disabled")
+	if (!!order.getDishes().length) {	
+		order.pay();
+		purchase.innerHTML = "Purchased"
+		purchase.classList.add("is-disabled")
+	} else {
+		console.log(123)
+		summary.innerHTML = "Choose someting first!"
+	}
 })
 
 
