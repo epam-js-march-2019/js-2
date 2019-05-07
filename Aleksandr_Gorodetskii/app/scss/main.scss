@@ -39,6 +39,11 @@ fieldset {
 	font-size: 13px;
 }
 
+.item-list {
+	list-style: none;
+	padding-left: 0;
+}
+
 .item-list li {
 	margin: 15px 5px;
 	text-align: left;
@@ -58,6 +63,14 @@ fieldset {
 
 .purchase {
 	width: 200px;
+}
+
+.is-error {
+	width: 50px;
+	height: 30px;
+	margin-right: 20px;
+	line-height: 11px;
+
 }
 .visually-hidden:not(:focus):not(:active) {
   position: absolute;

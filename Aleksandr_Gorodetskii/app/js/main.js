@@ -7,6 +7,7 @@ var hamburger = {};
 var salad = {};
 var drinks = {};
 
+// Match target button, create proper Item, add Item to list and check total price and total calories
 controls.addEventListener("click", function(e) {
   var targetAttr = e.target.getAttribute("data-item");
 
@@ -96,36 +97,56 @@ controls.addEventListener("click", function(e) {
   }
 });
 
+// Pay Button, inactive if order is empty. Freeze order after pay() method
 purchase.addEventListener("click", function() {
-	if (!!order.getDishes().length) {	
-		order.pay();
-		purchase.innerHTML = "Purchased"
-		purchase.classList.add("is-disabled")
-	} else {
-		console.log(123)
-		summary.innerHTML = "Choose something first!"
-	}
-})
+  if (!!order.getDishes().length) {
+    order.pay();
+    purchase.innerHTML = "Purchased";
+    purchase.classList.add("is-disabled");
+  } else {
+    summary.innerHTML = "Choose something first!";
+  }
+});
 
+// Match 'delete' button and remove current item from list and order. Recheck values.
+itemList.addEventListener("click", function(e) {
+  var targetAttr = e.target;
+  var li = e.target.closest("li");
+  var nodes = Array.from(itemList.children);
+  var index = nodes.indexOf(li);
 
+  if ((targetAttr.className = "is-error")) {
+    order.deletePositionFromOrder(index);
+    e.target.parentNode.remove(e.target);
+    checkValue();
+  }
+});
+
+// Create DOM element
 var addCurrentItem = function(name, price, cals, amount = 1) {
   var node = document.createElement("LI");
+	var cancelBtn = document.createElement("button");
+	
   var textnode = document.createTextNode(
     name +
       ", price: " +
       price +
-      "rup, calories: " +
+      "tug, calories: " +
       cals +
       ", amount: " +
       amount
-  );
-
+	);
+	
+  cancelBtn.classList.add("nes-btn", "is-error");
+  cancelBtn.innerHTML = "X";
+  node.appendChild(cancelBtn);
   node.appendChild(textnode);
   itemList.appendChild(node);
   checkValue();
   saladAmount.value = 0;
 };
 
+// Check value and rewrite Summary block
 var checkValue = function() {
   var totalPrice = order.calculateTotalPrice();
   var totalCalories = order.calculateTotalCalories();
@@ -142,7 +163,6 @@ function createBurger(type, stuffing) {
 }
 
 var createSalad = function(type, amount) {
-  console.log(amount);
   salad = new Salad(type, amount);
   order.addToOrder(salad);
 

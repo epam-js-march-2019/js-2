@@ -24,7 +24,7 @@ Order.prototype.addToOrder = function(item) {
 
 Order.prototype.deletePositionFromOrder = function(index) {
   if (!this.getPaid()) {
-    var dishPosition = index - 1;
+    var dishPosition = index;
     this.getDishes().splice(dishPosition, 1);
   } else {
     throw new OrderError("Rejected. The order is already paid");
@@ -33,28 +33,24 @@ Order.prototype.deletePositionFromOrder = function(index) {
 
 Order.prototype.calculateTotalPrice = function() {
   var thisOrder = this.getDishes();
-  if (thisOrder.length > 0) {
+  if (thisOrder.length >= 0) {
     var totalPrice = 0;
     for (var index = 0; index < thisOrder.length; index++) {
       totalPrice += thisOrder[index].calculatePrice();
     }
     return totalPrice;
-  } else {
-    throw new OrderError("Order is empty");
   }
 };
 
 Order.prototype.calculateTotalCalories = function() {
   var thisOrder = this.getDishes();
-  if (thisOrder.length > 0) {
+  if (thisOrder.length >= 0) {
     var totalCalories = 0;
     for (var index = 0; index < thisOrder.length; index++) {
       totalCalories += thisOrder[index].calculateCalories();
     }
     return totalCalories;
-  } else {
-    throw new OrderError("Order is empty");
-  }
+  } 
 };
 
 Order.prototype.pay = function() {
