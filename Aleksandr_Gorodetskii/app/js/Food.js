@@ -7,7 +7,7 @@ FoodItem.prototype.calculatePrice = function() {
   var totalPrice = null;
   var partialPrice = thisParams.type.price;
   var mililitres = thisParams.amount;
-
+ 
   totalPrice = (partialPrice * mililitres) / 100;
 
   return totalPrice;
