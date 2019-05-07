@@ -103,7 +103,7 @@ purchase.addEventListener("click", function() {
 		purchase.classList.add("is-disabled")
 	} else {
 		console.log(123)
-		summary.innerHTML = "Choose someting first!"
+		summary.innerHTML = "Choose something first!"
 	}
 })
 
