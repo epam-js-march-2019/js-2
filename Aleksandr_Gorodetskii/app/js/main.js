@@ -114,8 +114,8 @@ itemList.addEventListener("click", function(e) {
   var li = e.target.closest("li");
   var nodes = Array.from(itemList.children);
   var index = nodes.indexOf(li);
-
-  if ((targetAttr.className = "is-error")) {
+  console.log(targetAttr.className)
+  if (targetAttr.classList.contains("is-error")) {
     order.deletePositionFromOrder(index);
     e.target.parentNode.remove(e.target);
     checkValue();
