@@ -253,9 +253,15 @@ orderNode.addEventListener('click', function (e) {
     order.deleteAllPosition();
     clearInputs()
     calculateOrder()
-    order.getItems()
     orderNode.querySelector('.js-order-calory').textContent = 0 + ' ' + VALUE_CALORY;
     orderNode.querySelector('.js-order-sum').textContent = 0 + ' ' + VALUE_PRICE;
+    var content = document.querySelector('.content');
+    content.classList.remove('content__overlay');
+
+
+
+    //uncomment this function if you dont want to toggle form again and want to reload document
+    // document.location.reload(true); 
 
   }
 })
