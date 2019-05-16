@@ -1,6 +1,6 @@
 'use strict';
 
-import { MenuItem } from "../menuItem.js";
+import { MenuItem } from "./menuItem.js";
 
 function Salad(type, weight) {
 	MenuItem.call(this);
@@ -10,7 +10,7 @@ function Salad(type, weight) {
 		// Получение стоимости и калорийности пункта меню с учётом веса
 	this.price = (type.price / 100) * weight;
 	this.calories = (type.calories / 100) * weight;
-}
+};
 
 Salad.prototype = Object.create(MenuItem.prototype);
 Salad.prototype.constructor = Salad;

@@ -1,18 +1,14 @@
 "use strict";
 
-import { Hamburger } from "./proj/products/hamburger.js";
-import { Salad } from "./proj/products/salad.js";
-import { Drink } from "./proj/products/drink.js";
+import { CommonInit } from "./proj/common/common.js";
 
-import { Order } from "./proj/order.js";
+import { Form } from "./proj/form/form.js";
 
 function proj(){};
 
-proj.prototype.Hamburger = Hamburger;
-proj.prototype.Salad = Salad;
-proj.prototype.Drink = Drink;
+proj.prototype.CommonInit = CommonInit;
 
-proj.prototype.Order = Order;
+proj.prototype.Form = Form;
 
 export {
 	proj

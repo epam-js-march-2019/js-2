@@ -1,10 +1,119 @@
-<!doctype html>
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
+
+	<style>
+		.is-hide {
+			display: none;
+		}
+
+		.form__menu,
+		.form__item,
+		.form__item-product,
+		.form__item-count,
+		.form__button {
+			margin-bottom: 20px;
+		}
+
+		.form__item:last-child,
+		.form__button:last-child {
+			margin-bottom: 0px;
+		}
+
+		.form__item {
+			width: 455px;
+			padding: 20px;
+			border: 1px solid black;
+		}
+
+		.form__empty {
+			display: none;
+		}
+
+		.form__empty.is-active {
+			display: block;
+		}
+
+		.form__button button {
+			width: 200px;
+		}
+	</style>
 </head>
 <body>
+	<div>
+		<div>
+			<form class="form">
+				<div>
+					<div class="form__menu js-menu">
+						<div class="form__item js-item">
+							<div class="form__item-product">
+								<select class="js-product">
+									<option data-product="hamburger" value="1" selected="selected">Маленький гамбургер</option>
+									<option data-product="hamburger" value="2">Большой гамбургер</option>
+									<option data-product="salat" value="3">Салат цезарь</option>
+									<option data-product="salat" value="4">Салат Оливье</option>
+									<option data-product="drink" value="5">Кола</option>
+									<option data-product="drink" value="6">Кофе</option>
+								</select>
+							</div>
+							<div class="form__item-count">
+								<div class="js-hamburger">
+									<select class="js-hamburger-stuffing">
+										<option value="11" selected="selected">Начинка с сыром</option>
+										<option value="12">Начинка с салатом</option>
+										<option value="13">Начинка с картофелем</option>
+									</select>
+									<label>
+										<span>сколько начинок, шт. ?</span>
+										<input class="js-count" type="number" min="1" value="1">
+									</label>
+								</div>
+
+								<div class="js-salat is-hide">
+									<label>
+										<span>вес, гр.</span>
+										<input class="js-count" type="number" min="50" value="50">
+									</label>
+								</div>
+
+								<div class="js-drink is-hide">
+									<label>
+										<span>количество, шт.</span>
+										<input class="js-count" type="number" min="1" value="1">
+									</label>
+								</div>
+							</div>
+							<div class="form__item-delete">
+								<button class="js-delete-item">Удалить</button>
+							</div>
+						</div>
+
+						<div class="form__empty js-empty">
+							<span>Добавьте продукт в меню</span>
+						</div>
+					</div>
+					
+					<div>
+						<div class="form__button">
+							<button class="js-add-menu-item">Добавить продукт</button>
+						</div>
+						<div class="form__button">
+							<button class="js-get-price">Посчитать цену</button>
+						</div>
+						<div class="form__button">
+							<button class="js-get-calories">Посчитать калории</button>
+						</div>
+						<div class="form__button">
+							<button class="js-pay">Оплатить</button>
+						</div>
+					</div>
+
+				</div>
+			</form>
+		</div>
+	</div>
+
 	<script type="text/javascript" src="public/js/script.min.js"></script>
 </body>
 </html>

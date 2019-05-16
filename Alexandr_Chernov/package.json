@@ -5,6 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "build": "webpack --mode development",
+    "watch": "webpack --watch --info-verbosity verbose",
     "prod": "webpack --mode production"
   },
   "author": "",
